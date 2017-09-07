@@ -13,7 +13,9 @@
         "josegonzalez/dotenv": "dev-master",
         "mobiledetect/mobiledetectlib": "2.*",
         "twbs/bootstrap": "~3.0",
-        "xety/cake3-cookieauth": "1.*"
+        "xety/cake3-cookieauth": "1.*",
+        "knplabs/github-api": "^2.5",
+        "php-http/guzzle6-adapter": "^1.1"
     },
     "require-dev": {
         "cakephp/bake": "~1.1",
