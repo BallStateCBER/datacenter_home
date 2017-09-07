@@ -1,0 +1,56 @@
+table.table .glyphicon {
+  cursor: default;
+  font-size: 120%;
+}
+table.table a .glyphicon {
+  cursor: pointer;
+}
+table.table .glyphicon-ok-sign,
+table.table .glyphicon-circle-arrow-right {
+  color: green;
+}
+table.table .glyphicon-remove-sign,
+table.table .glyphicon-question-sign {
+  color: red;
+}
+table.table .glyphicon-circle-arrow-left {
+  color: #E0C600;
+}
+table.table span.debug {
+  color: #999;
+  font-size: 80%;
+}
+table.table span.na {
+  color: #999;
+  font-size: 80%;
+}
+table.table td:last-child span.debug {
+  color: red;
+  font-size: inherit;
+}
+table.table ul.links {
+  font-size: 80%;
+  margin: 0;
+  padding: 0;
+}
+table.table ul.links li {
+  border-right: 1px solid #bbb;
+  display: inline;
+  list-style-type: none;
+  margin: 0 5px 0 0;
+  padding: 0 5px 0 0;
+}
+table.table ul.links li:last-child {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+table.table tr.issues td {
+  border-top: none;
+  padding-top: 0;
+}
+table.table tr.issues ul {
+  margin-top: -10px;
+  margin-bottom: 0;
+  padding-left: 10px;
+}
