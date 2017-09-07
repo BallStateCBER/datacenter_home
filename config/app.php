@@ -364,4 +364,6 @@ return [
     'Session' => [
         'defaults' => 'php',
     ],
+
+    'github_api_token' => env('GITHUB_API_TOKEN')
 ];
