@@ -12,12 +12,12 @@ var dataCenterOverview = {
 					cell.html('<img src=\"/data_center/img/loading_small.gif\" alt=\"Loading...\" />');
 				},
 				success: function (data) {
-					if (data.status.search('200 OK') > -1) {
+					if (data.result.status.search('200 OK') > -1) {
     					cell.html('<span class=\"glyphicon glyphicon-ok-sign\" title=\"200 OK\"></span>');
 					} else {
-						cell.html('<span class=\"glyphicon glyphicon-remove-sign\" title=\"'+data.status+'\"></span>');
+						cell.html('<span class=\"glyphicon glyphicon-remove-sign\" title=\"' + data.result.status + '\"></span>');
 					}
-					if (data.debug) {
+					if (data.result.debug) {
 						cell.append(' <span class=\"debug\">debug</span>');
 					}
 				},
