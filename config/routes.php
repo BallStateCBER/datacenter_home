@@ -45,6 +45,11 @@ Router::defaultRouteClass(DashedRoute::class);
 
 Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'home']);
+    $routes->connect('/commentaries/*', ['controller' => 'pages', 'action' => 'commentaries_redirect']);
+    $routes->connect('/refresh_latest_release', ['controller' => 'pages', 'action' => 'refresh_latest_release']);
+    $routes->connect('/panopticon', ['controller' => 'pages', 'action' => 'overview']);
+    $routes->connect('/terms', ['controller' => 'pages', 'action' => 'terms']);
+    $routes->connect('/slack', ['controller' => 'pages', 'action' => 'slack']);
 
     /**
      * Connect catchall routes for all controllers.
