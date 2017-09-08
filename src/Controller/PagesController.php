@@ -58,14 +58,12 @@ class PagesController extends AppController
      *
      * @return void
      */
-    public function refresh_latest_release()
+    public function refreshLatestRelease()
     {
         Cache::write('latest_release', []);
+        $this->viewBuilder()->setLayout('ajax');
 
-        // So ReleasesController::__updateDataCenterHome() in Projects and Publications returns TRUE
-        echo 1;
-
-        $this->render('DataCenter.Common/blank', 'DataCenter.blank');
+        // ReleasesController::__updateDataCenterHome() in Projects and Publications returns TRUE
     }
 
     /**
