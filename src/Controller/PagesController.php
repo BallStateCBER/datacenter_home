@@ -187,11 +187,16 @@ class PagesController extends AppController
             'county-profiles-updater' => [
                 'title' => 'County Profiles Updater'
             ],
+            'datacenter_home' => [
+                'title' => 'CBER Data Center Home (CakePHP 3)',
+                'production' => 'http://cberdata.org',
+                'development' => 'http://dchome3.localhost'
+            ],
             'datacenter_skeleton' => [
-                'title' => ' CBER Data Center Website Skeleton'
+                'title' => 'CBER Data Center Website Skeleton'
             ],
             'dataCenterHome' => [
-                'title' => 'CBER Data Center Home',
+                'title' => 'CBER Data Center Home (CakePHP 2)',
                 'production' => 'http://cberdata.org',
                 'development' => 'http://dchome.localhost'
             ],
