@@ -1,8 +1,8 @@
 <h1 class="page_title">
-	<?php echo $title_for_layout; ?>
+	<?= $titleForLayout ?>
 </h1>
 
-<?php $this->Html->css('overview', array('inline' => false)); ?>
+<?php $this->Html->css('overview', ['block' => 'css']); ?>
 
 <?php if (empty($repositories)): ?>
 	<p>
@@ -14,7 +14,7 @@
 			<tr>
 				<th>
 					Website / Software
-				</td>
+				</th>
 				<th>
 					Open
 					<br />
@@ -29,7 +29,7 @@
 					<br />
 					Push
 				</th>
-				<?php if ($is_localhost): ?>
+				<?php if ($isLocalhost): ?>
 					<th>
 						Status
 						<br />
@@ -51,19 +51,19 @@
 			<?php foreach ($repositories as $repo): ?>
 				<tr>
 					<td>
-						<?php echo isset($sites[$repo['name']]['title']) ? $sites[$repo['name']]['title'] : $repo['name']; ?>
+						<?= isset($sites[$repo['name']]['title']) ? $sites[$repo['name']]['title'] : $repo['name'] ?>
 						<br />
 						<ul class="links">
 							<li>
-								<a href="<?php echo $repo['html_url']; ?>">
+								<a href="<?= $repo['html_url'] ?>">
 									Repo
 								</a>
 							</li>
-							<?php foreach (array('development', 'production') as $server): ?>
+							<?php foreach (['development', 'production'] as $server): ?>
 								<?php if (isset($sites[$repo['name']][$server])): ?>
 									<li>
-										<a href="<?php echo $sites[$repo['name']][$server]; ?>">
-											<?php echo ucwords($server); ?>
+										<a href="<?= $sites[$repo['name']][$server] ?>">
+											<?= ucwords($server) ?>
 										</a>
 									</li>
 								<?php endif; ?>
@@ -71,21 +71,21 @@
 						</ul>
 					</td>
 					<td>
-						<a href="<?php echo $repo['html_url']; ?>/issues" class="issues" data-repo="<?php echo $repo['name']; ?>">
-							<?php echo $repo['open_issues']; ?>
+						<a href="<?= $repo['html_url'] ?>/issues" class="issues" data-repo="<?= $repo['name'] ?>">
+							<?= $repo['open_issues'] ?>
 						</a>
 					</td>
 					<td>
-						<?php echo $repo['master_status']; ?>
+						<?= $repo['master_status'] ?>
 					</td>
 					<td>
 						<?php
-							$time_ago = $this->Time->timeAgoInWords($repo['pushed_at'], array(
+							$timeAgo = $this->Time->timeAgoInWords($repo['pushed_at'], [
 								'end' => '+10 year'
-							));
-							$time_ago_split = explode(', ', $time_ago);
-							$time_ago = $time_ago_split[0];
-							echo str_replace(' ago', '', $time_ago);
+							]);
+							$time_ago_split = explode(', ', $timeAgo);
+							$timeAgo = $time_ago_split[0];
+							echo str_replace(' ago', '', $timeAgo);
 						?>
 					</td>
 					<?php foreach ($servers as $server): ?>
@@ -93,7 +93,7 @@
 							$url = isset($sites[$repo['name']][$server]) ? $sites[$repo['name']][$server] : null;
 						?>
 						<?php if ($url): ?>
-							<td class="check_status" data-url="<?php echo $url; ?>" data-server="<?php echo $server; ?>">
+							<td class="check_status" data-url="<?= $url ?>" data-server="<?= $server ?>">
 
 							</td>
 						<?php else: ?>
@@ -108,6 +108,7 @@
 	</table>
 <?php endif; ?>
 
-<?php
-	$this->Html->script('overview', array('inline' => false));
-	$this->Js->buffer("dataCenterOverview.init();");
+<?php $this->Html->script('overview', ['block' => 'scriptBottom']); ?>
+<?php $this->append('buffered'); ?>
+    dataCenterOverview.init();
+<?php $this->end(); ?>

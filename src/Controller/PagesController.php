@@ -90,10 +90,10 @@ class PagesController extends AppController
         $isLocalhost = $this->isLocalhost();
 
         $this->set([
-            'title_for_layout' => 'CBER Website Panopticon',
+            'titleForLayout' => 'CBER Website Panopticon',
             'repositories' => $repositories,
             'sites' => $sites,
-            'is_localhost' => $isLocalhost,
+            'isLocalhost' => $isLocalhost,
             'servers' => $isLocalhost ? ['development', 'production'] : ['production'],
             'retired' => $retired
         ]);
