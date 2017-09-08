@@ -8,8 +8,14 @@
 ?>
 
 <?php $this->start('subsite_title'); ?>
-    <?php // Placeholder for a site header element ?>
+    <h1 id="subsite_title" class="max_width_padded">
+        <a href="/">
+            Collect | Analyze | Display
+        </a>
+    </h1>
 <?php $this->end(); ?>
+
+<?php $this->assign('sidebar', $this->element('sidebar')); ?>
 
 <?php $this->append('scriptBottom'); ?>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
