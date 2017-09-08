@@ -365,5 +365,7 @@ return [
         'defaults' => 'php',
     ],
 
-    'github_api_token' => env('GITHUB_API_TOKEN')
+    'github_api_token' => env('GITHUB_API_TOKEN'),
+    'google_analytics_id' => env('GOOGLE_ANALYTICS_ID'),
+    'slack_webhook_url' => env('SLACK_WEBHOOK_URL')
 ];
