@@ -14,6 +14,7 @@
  */
 namespace App\Controller;
 
+use Cake\Cache\Cache;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 
@@ -53,6 +54,40 @@ class AppController extends Controller
     }
 
     /**
+     * Pulls the latest release from the Projects and Publications site
+     *
+     * @return mixed
+     */
+    protected function importLatestRelease() {
+        // Development server
+        if (stripos($_SERVER['SERVER_NAME'], 'localhost') !== false) {
+            $url = 'http://projects.localhost/releases/latest';
+            // Production server
+        } else {
+            $url = 'http://projects.cberdata.org/releases/latest';
+        }
+        $results = file_get_contents($url);
+        return unserialize($results);
+    }
+
+    /**
+     * Returns the (cached) most recent release from the Projects and Publications site
+     *
+     * @return mixed
+     */
+    protected function getLatestRelease() {
+        $release = Cache::read('latest_release');
+        if (empty($release['cached_time']) || $release['cached_time'] < strtotime('-1 day')) {
+            $release = $this->importLatestRelease();
+            if (! empty($release)) {
+                $release['cached_time'] = time();
+                Cache::write('latest_release', $release);
+            }
+        }
+        return $release;
+    }
+
+    /**
      * Before render callback.
      *
      * @param \Cake\Event\Event $event The beforeRender event.
@@ -68,5 +103,9 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+
+        $this->set([
+            'latestRelease' => $this->getLatestRelease()
+        ]);
     }
 }
