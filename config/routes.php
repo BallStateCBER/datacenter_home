@@ -50,6 +50,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/panopticon', ['controller' => 'pages', 'action' => 'overview']);
     $routes->connect('/terms', ['controller' => 'pages', 'action' => 'terms']);
     $routes->connect('/slack', ['controller' => 'pages', 'action' => 'slack']);
+    $routes->connect('/phpinfo', ['controller' => 'pages', 'action' => 'phpinfo']);
 
     /**
      * Connect catchall routes for all controllers.
