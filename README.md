@@ -1,23 +1,9 @@
-# CBER Data Center Website Skeleton
+# CBER Data Center Home
 
-## Installation
+[![Build Status](https://travis-ci.org/BallStateCBER/datacenter_home.svg?branch=master)](https://travis-ci.org/BallStateCBER/datacenter_home)
+[![Code Climate](https://codeclimate.com/repos/59b80cac1a82de026200054b/badges/2c90d1e3f350acb0eca6/gpa.svg)](https://codeclimate.com/repos/59b80cac1a82de026200054b/feed)
+[![Test Coverage](https://codeclimate.com/repos/59b80cac1a82de026200054b/badges/2c90d1e3f350acb0eca6/coverage.svg)](https://codeclimate.com/repos/59b80cac1a82de026200054b/coverage)
+[![Issue Count](https://codeclimate.com/repos/59b80cac1a82de026200054b/badges/2c90d1e3f350acb0eca6/issue_count.svg)](https://codeclimate.com/repos/59b80cac1a82de026200054b/feed)
 
-`composer create-project --prefer-dist ballstatecber/datacenter-skeleton [app_name] -s dev`
-
-## Configuration
-
-- Update `config/app.php`
-- Update `config/.env`, `config/.env.production`, and `config/.env.dev`
-- Compile `webroot/css/style.less` into `style.css`
-- Check to make sure the version of Bootstrap served via [BootstrapCDN.com](https://www.bootstrapcdn.com/) in `Template/Layout/default.ctp` matches that in `vendor/twbs/bootstrap`
-
-## Setting up integrations
-- Create a [GitHub](https://github.com/BallStateCBER/) repository
-- Add repo to [Code Climate](https://codeclimate.com/dashboard)
-    - Add Slack integration
-    - Add GitHub issue integration
-- Add Code Climate to the GitHub repo's integrations & services tab  
-- Add repo to [Slack's GitHub integration](https://cber.slack.com/apps/A0F7YS2SX-github)
-- Turn on building in [Travis](https://travis-ci.org/profile/BallStateCBER)
-- Add to [Data Center Panopticon](http://cberdata.org/panopticon)
-- **Bonus points:** Add Travis and Code Climate badges to `README.md`
+The homepage for the Ball State University Center for Business and Economic Research Data Center suite of websites, 
+found at [http://cberdata.org](http://cberdata.org).
