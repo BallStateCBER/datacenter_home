@@ -58,7 +58,8 @@ class AppController extends Controller
      *
      * @return mixed
      */
-    protected function importLatestRelease() {
+    protected function importLatestRelease()
+    {
         // Development server
         if (stripos($_SERVER['SERVER_NAME'], 'localhost') !== false) {
             $url = 'http://projects.localhost/releases/latest';
@@ -67,6 +68,7 @@ class AppController extends Controller
             $url = 'http://projects.cberdata.org/releases/latest';
         }
         $results = file_get_contents($url);
+
         return unserialize($results);
     }
 
@@ -75,7 +77,8 @@ class AppController extends Controller
      *
      * @return mixed
      */
-    protected function getLatestRelease() {
+    protected function getLatestRelease()
+    {
         $release = Cache::read('latest_release');
         if (empty($release['cached_time']) || $release['cached_time'] < strtotime('-1 day')) {
             $release = $this->importLatestRelease();
@@ -84,6 +87,7 @@ class AppController extends Controller
                 Cache::write('latest_release', $release);
             }
         }
+
         return $release;
     }
 
@@ -95,9 +99,9 @@ class AppController extends Controller
      */
     public function beforeRender(Event $event)
     {
-        // Note: These defaults are just to get started quickly with development
-        // and should not be used in production. You should instead set "_serialize"
-        // in each action as required.
+        /* Note: These defaults are just to get started quickly with development
+         * and should not be used in production. You should instead set "_serialize"
+         * in each action as required. */
         if (!array_key_exists('_serialize', $this->viewVars) &&
             in_array($this->response->type(), ['application/json', 'application/xml'])
         ) {

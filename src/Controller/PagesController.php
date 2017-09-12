@@ -345,13 +345,13 @@ class PagesController extends AppController
                         $repositories[$i]['master_status'] = '<span class="glyphicon glyphicon-ok-sign" title="Identical"></span>';
                         break;
                     case 'ahead':
-                        $ahead_branch = $baseBranch ? " of $baseBranch" : '';
-                        $repositories[$i]['master_status'] = '<span class="glyphicon glyphicon-circle-arrow-right" title="Ahead' . $ahead_branch . ' for some reason"></span> ';
+                        $aheadBranch = $baseBranch ? " of $baseBranch" : '';
+                        $repositories[$i]['master_status'] = '<span class="glyphicon glyphicon-circle-arrow-right" title="Ahead' . $aheadBranch . ' for some reason"></span> ';
                         $repositories[$i]['master_status'] .= $compare['ahead_by'];
                         break;
                     case 'behind':
-                        $behind_branch = $baseBranch ? " $baseBranch" : '';
-                        $repositories[$i]['master_status'] = '<span class="glyphicon glyphicon-circle-arrow-left" title="Behind' . $behind_branch . '"></span> ';
+                        $behindBranch = $baseBranch ? " $baseBranch" : '';
+                        $repositories[$i]['master_status'] = '<span class="glyphicon glyphicon-circle-arrow-left" title="Behind' . $behindBranch . '"></span> ';
                         $repositories[$i]['master_status'] .= $compare['behind_by'];
                         break;
                     default:
@@ -363,16 +363,16 @@ class PagesController extends AppController
         }
 
         // Sort by last push
-        $sorted_repos = [];
+        $sortedRepos = [];
         foreach ($repositories as $i => $repository) {
             $key = $repository['pushed_at'];
-            if (isset($sorted_repos[$key])) {
+            if (isset($sortedRepos[$key])) {
                 $key .= $i;
             }
-            $sorted_repos[$key] = $repository;
+            $sortedRepos[$key] = $repository;
         }
-        krsort($sorted_repos);
-        $repositories = $sorted_repos;
+        krsort($sortedRepos);
+        $repositories = $sortedRepos;
 
         return $repositories;
     }
@@ -385,9 +385,10 @@ class PagesController extends AppController
     private function isLocalhost()
     {
         $pos = stripos(env('SERVER_NAME'), 'localhost');
-        $sn_len = strlen(env('SERVER_NAME'));
-        $lh_len = strlen('localhost');
-        return ($pos !== false && $pos == ($sn_len - $lh_len));
+        $snLen = strlen(env('SERVER_NAME'));
+        $lhLen = strlen('localhost');
+
+        return ($pos !== false && $pos == ($snLen - $lhLen));
     }
 
     /**
