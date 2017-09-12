@@ -2,7 +2,6 @@ var dataCenterOverview = {
 	init: function () {
 		$('td.check_status').each(function () {
 			var cell = $(this);
-			var is_localhost = cell.data('server') == 'development';
 			var url = '/pages/statuscheck?url=' + encodeURIComponent(cell.data('url'));
 			$.ajax({
 				dataType: 'json',
@@ -52,16 +51,18 @@ var dataCenterOverview = {
 				success: function (data) {
 					var tr = link.closest('tr');
 					var colspan = tr.children().length - 1;
-					var new_row = $('<tr id=\"'+repo+'_issues\" class=\"issues\" style=\"display: none;\"><td></td><td colspan=\"'+colspan+'\"><ul style=\"display: none;\"></ul></td></tr>').hide();
-					tr.after(new_row);
-					var ul = new_row.find('ul');
+					var newRow = $('<tr id=\"' + repo + '_issues\" class=\"issues\" style=\"display: none;\"><td></td><td colspan=\"' + colspan + '\"><ul style=\"display: none;\"></ul></td></tr>').hide();
+					tr.after(newRow);
+					var ul = newRow.find('ul');
 					if (data.length > 0) {
-						for (i = 0; i < data.length; i++) {
-							ul.append('<li><a href=\"'+data[i]['html_url']+'\">'+data[i]['title']+'</a></li>');
+						var issue;
+						for (var i = 0; i < data.length; i++) {
+							issue = data[i];
+							ul.append('<li><a href=\"' + issue.html_url + '\">' + issue.title + '</a></li>');
 						}
 					}
-					ul.append('<li><a href=\"https://github.com/BallStateCBER/'+repo+'/issues/new\">Add a new issue</a></li>');
-					new_row.show();
+					ul.append('<li><a href=\"https://github.com/BallStateCBER/' + repo + '/issues/new\">Add a new issue</a></li>');
+					newRow.show();
 					ul.slideDown();
 				},
 				error: function (jqXHR, textStatus, errorThrown) {
