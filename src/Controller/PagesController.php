@@ -229,6 +229,9 @@ class PagesController extends AppController
             'muncie_events3' => [
                 'title' => 'Muncie Events (CakePHP 3)'
             ],
+            'notes' => [
+                'title' => 'CBER Web Development Notes'
+            ],
             'projects' => [
                 'title' => 'CBER Projects and Publications',
                 'production' => 'http://projects.cberdata.org',
