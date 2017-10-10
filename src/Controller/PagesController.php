@@ -241,9 +241,14 @@ class PagesController extends AppController
                 'title' => 'BSU Roundtable (CakePHP 2)'
             ],
             'taxCalculator' => [
-                'title' => 'Tax Savings Calculator',
+                'title' => 'Tax Savings Calculator (CakePHP 2)',
                 'production' => 'http://tax-comparison.cberdata.org',
                 'development' => 'http://tax-calculator.localhost'
+            ],
+            'tax-calculator' => [
+                'title' => 'Tax Savings Calculator (CakePHP 3)',
+                'production' => 'http://tax-comparison.cberdata.org',
+                'development' => 'http://tax-calculator3.localhost'
             ],
             'dataCenterPlugin' => [
                 'title' => 'Data Center Plugin (CakePHP 2)'
