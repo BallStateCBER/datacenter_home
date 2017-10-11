@@ -104,13 +104,8 @@ class Panopticon
             'roundtable' => [
                 'title' => 'BSU Roundtable (CakePHP 2)'
             ],
-            'taxCalculator' => [
-                'title' => 'Tax Savings Calculator (CakePHP 2)',
-                'production' => 'http://tax-comparison.cberdata.org',
-                'development' => 'http://tax-calculator.localhost'
-            ],
             'tax-calculator' => [
-                'title' => 'Tax Savings Calculator (CakePHP 3)',
+                'title' => 'Tax Savings Calculator',
                 'production' => 'http://tax-comparison.cberdata.org',
                 'development' => 'http://tax-calculator3.localhost'
             ],
@@ -145,7 +140,9 @@ class Panopticon
     public function getRetiredSites()
     {
         return [
-            'ice_miller'
+            // CakePHP 2 versions of sites that have been upgraded to CakePHP 3
+            'ice_miller',
+            'taxCalculator'
         ];
     }
 
