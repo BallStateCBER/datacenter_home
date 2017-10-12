@@ -15,7 +15,7 @@
 namespace App\Console;
 
 use Cake\Utility\Security;
-use Composer\Script\Event;
+use Composer\Installer\PackageEvent;
 use Exception;
 
 /**
@@ -28,11 +28,11 @@ class Installer
     /**
      * Does some routine installation tasks so people don't have to.
      *
-     * @param \Composer\Script\Event $event The composer event object.
+     * @param \Composer\Installer\PackageEvent $event The composer event object.
      * @throws \Exception Exception raised by validator.
      * @return void
      */
-    public static function postInstall(Event $event)
+    public static function postInstall(PackageEvent $event)
     {
         $io = $event->getIO();
 
@@ -133,6 +133,7 @@ class Installer
     public static function setFolderPermissions($dir, $io)
     {
         // Change the permissions on a path and output the results.
+        /** @var \Composer\IO\IOInterface $io */
         $changePerms = function ($path, $perms, $io) {
             // Get permission bits from stat(2) result.
             $currentPerms = fileperms($path) & 0777;
@@ -171,10 +172,10 @@ class Installer
     /**
      * Copies favicon and other files into /webroot
      *
-     * @param \Composer\Script\Event $event The composer event object.
+     * @param \Composer\Installer\PackageEvent $event The composer event object.
      * @return void
      */
-    public static function copyWebrootFiles(Event $event)
+    public static function copyWebrootFiles(PackageEvent $event)
     {
         $io = $event->getIO();
         $dir = dirname(dirname(__DIR__));
@@ -209,10 +210,10 @@ class Installer
     /**
      * Copies Bootstrap files into /webroot subdirectories
      *
-     * @param \Composer\Script\Event $event The composer event object.
+     * @param \Composer\Installer\PackageEvent $event The composer event object.
      * @return void
      */
-    public static function copyTwitterBootstrapFiles(Event $event)
+    public static function copyTwitterBootstrapFiles(PackageEvent $event)
     {
         $io = $event->getIO();
         $dir = dirname(dirname(__DIR__));
@@ -223,7 +224,7 @@ class Installer
         ];
         $fontSourceDir = $dir . '/vendor/twbs/bootstrap/dist/fonts';
         $fontDestinationDir = $dir . '/webroot/fonts';
-        $fontFiles = $files = array_diff(scandir($fontSourceDir), ['.', '..']);
+        $fontFiles = array_diff(scandir($fontSourceDir), ['.', '..']);
         foreach ($fontFiles as $fontFile) {
             $copyJobs[$fontSourceDir . '/' . $fontFile] = $fontDestinationDir . '/' . $fontFile;
         }
