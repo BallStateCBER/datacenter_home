@@ -72,6 +72,11 @@ class Panopticon
                 'production' => 'http://indicators.cberdata.org',
                 'development' => 'http://indicators.localhost'
             ],
+            'honest-pledge' => [
+                'title' => 'Honest Muncie Pledge',
+                'production' => 'http://pledge.honestmuncie.org',
+                'development' => 'http://honestpledge.localhost'
+            ],
             'ice-miller-cakephp3' => [
                 'title' => 'Ice Miller / EDGE Articles',
                 'production' => 'http://icemiller.cberdata.org',
