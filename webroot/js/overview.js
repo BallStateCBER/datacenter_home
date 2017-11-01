@@ -70,5 +70,27 @@ var dataCenterOverview = {
 				}
 			});
 		});
+		$('td.check-auto-deploy').each(function () {
+            var cell = $(this);
+            var url = '/pages/auto-deploy-check?site=' + encodeURIComponent(cell.data('site'));
+            $.ajax({
+                dataType: 'json',
+                url: url,
+                crossDomain: true,
+                beforeSend: function () {
+                    cell.html('<img src=\"/data_center/img/loading_small.gif\" alt=\"Loading...\" />');
+                },
+                success: function (data) {
+                    if (data.result === "1") {
+                        cell.html('<span class=\"glyphicon glyphicon-ok-sign\" title=\"Auto-deployed\"></span>');
+                    } else {
+                        cell.html('<span class=\"glyphicon glyphicon-remove-sign\" title=\"Not auto-deployed\"></span>');
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    cell.html('<span class=\"glyphicon glyphicon-remove-sign\" title=\"'+errorThrown+'\"></span>');
+                }
+            });
+		});
 	}
 };

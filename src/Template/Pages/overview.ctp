@@ -29,6 +29,11 @@
 					<br />
 					Push
 				</th>
+                <th>
+                    Auto
+                    <br />
+                    Deployed
+                </th>
 				<?php if ($isLocalhost): ?>
 					<th>
 						Status
@@ -90,6 +95,9 @@
                             echo $number . substr($unit, 0, 1);
 						?>
 					</td>
+                    <td class="check-auto-deploy" data-site="<?= $repo['name'] ?>">
+
+                    </td>
 					<?php foreach ($servers as $server): ?>
 						<?php
 							$url = isset($sites[$repo['name']][$server]) ? $sites[$repo['name']][$server] : null;

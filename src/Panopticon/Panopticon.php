@@ -269,4 +269,24 @@ class Panopticon
 
         return $result;
     }
+
+    /**
+     * Returns whether or not the specified site is auto-deployed
+     *
+     * @param string $siteName GitHub repo name, technically
+     * @return bool
+     */
+    public function isAutoDeployed($siteName)
+    {
+        $url = 'https://deploy.cberdata.org/check.php?site=' . $siteName;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // ignore SSL errors
+        //curl_setopt($ch, CURLOPT_HEADER, 1);
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        return $result;
+    }
 }

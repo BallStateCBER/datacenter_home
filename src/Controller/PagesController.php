@@ -126,6 +126,20 @@ class PagesController extends AppController
     }
 
     /**
+     * Checks with deploy.cberdata.org to see whether the specified site gets auto-deployed
+     *
+     * @return void
+     */
+    public function autoDeployCheck()
+    {
+        $siteName = $this->request->getQuery('site');
+        $panopticon = new Panopticon();
+        $result = $panopticon->isAutoDeployed($siteName);
+        $this->set('result', $result);
+        $this->viewBuilder()->setLayout('json');
+    }
+
+    /**
      * Returns whether or not the webpage is currently being viewed on a localhost server
      *
      * @return bool
