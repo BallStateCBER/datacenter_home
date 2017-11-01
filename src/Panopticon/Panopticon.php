@@ -168,12 +168,12 @@ class Panopticon
         // Loop through all of BallStateCBER's repos
         /** @var \Github\Api\CurrentUser $user */
         $user = $client->api('user');
-        $repositories = $user->repositories($username);
+        $repos = $user->repositories($username);
         /** @var \Github\Api\Repo $repo */
-        $repo = $client->api('repo');
-        foreach ($repositories as $i => $repository) {
+        $apiRepo = $client->api('repo');
+        foreach ($repos as $i => $repo) {
             // Figure out what branches this repo has
-            $branches = $repo->branches($username, $repository['name']);
+            $branches = $apiRepo->branches($username, $repo['name']);
             $hasMasterBranch = false;
             $hasDevBranch = false;
             $devSha = null;
@@ -187,7 +187,7 @@ class Panopticon
                 } else {
                     $extraBranches[$branch['name']] = $branch['commit']['sha'];
                 }
-                $repositories[$i]['branches'][] = $branch['name'];
+                $repos[$i]['branches'][] = $branch['name'];
             }
 
             // Determine which branch the master branch should be compared to
@@ -196,12 +196,12 @@ class Panopticon
                 $freshestBranch = null;
                 $updated = null;
                 if ($hasDevBranch) {
-                    $devCommit = $repo->commits()->show($username, $repository['name'], $devSha);
+                    $devCommit = $apiRepo->commits()->show($username, $repo['name'], $devSha);
                     $freshestBranch = 'development';
                     $updated = $devCommit['commit']['committer']['date'];
                 }
                 foreach ($extraBranches as $branchName => $branchSha) {
-                    $commit = $repo->commits()->show($username, $repository['name'], $branchSha);
+                    $commit = $apiRepo->commits()->show($username, $repo['name'], $branchSha);
                     if ($commit['commit']['committer']['date'] > $updated) {
                         $freshestBranch = $branchName;
                         $updated = $commit['commit']['committer']['date'];
@@ -213,42 +213,56 @@ class Panopticon
             // Determine how ahead/behind master is vs. most recently-updated non-master branch
             $canCompare = $hasMasterBranch && $baseBranch;
             if ($canCompare) {
-                $compare = $repo->commits()->compare($username, $repository['name'], $baseBranch, 'master');
+                $compare = $apiRepo->commits()->compare($username, $repo['name'], $baseBranch, 'master');
                 switch ($compare['status']) {
                     case 'identical':
-                        $repositories[$i]['master_status'] = '<span class="glyphicon glyphicon-ok-sign" title="Identical"></span>';
+                        $status = $this->getGlyphicon('ok-sign', 'Identical');
                         break;
                     case 'ahead':
                         $aheadBranch = $baseBranch ? " of $baseBranch" : '';
-                        $repositories[$i]['master_status'] = '<span class="glyphicon glyphicon-circle-arrow-right" title="Ahead' . $aheadBranch . ' for some reason"></span> ';
-                        $repositories[$i]['master_status'] .= $compare['ahead_by'];
+                        $title = 'Ahead' . $aheadBranch . ' for some reason';
+                        $status = $this->getGlyphicon('circle-arrow-right', $title);
+                        $status .= ' ' . $compare['ahead_by'];
                         break;
                     case 'behind':
                         $behindBranch = $baseBranch ? " $baseBranch" : '';
-                        $repositories[$i]['master_status'] = '<span class="glyphicon glyphicon-circle-arrow-left" title="Behind' . $behindBranch . '"></span> ';
-                        $repositories[$i]['master_status'] .= $compare['behind_by'];
+                        $status = $this->getGlyphicon('circle-arrow-left', 'Behind' . $behindBranch);
+                        $status .= ' ' . $compare['behind_by'];
                         break;
                     default:
-                        $repositories[$i]['master_status'] = '<span class="glyphicon glyphicon-question-sign" title="Unexpected status"></span>';
+                        $status = $this->getGlyphicon('question-sign', 'Unexpected status');
                 }
             } else {
-                $repositories[$i]['master_status'] = '<span class="na">N/A</a>';
+                $status = '<span class="na">N/A</a>';
             }
+            $repos[$i]['master_status'] = $status;
         }
 
         // Sort by last push
         $sortedRepos = [];
-        foreach ($repositories as $i => $repository) {
-            $key = $repository['pushed_at'];
+        foreach ($repos as $i => $repo) {
+            $key = $repo['pushed_at'];
             if (isset($sortedRepos[$key])) {
                 $key .= $i;
             }
-            $sortedRepos[$key] = $repository;
+            $sortedRepos[$key] = $repo;
         }
         krsort($sortedRepos);
-        $repositories = $sortedRepos;
+        $repos = $sortedRepos;
 
-        return $repositories;
+        return $repos;
+    }
+
+    /**
+     * Returns a <span> tag for the specified glyphicon
+     *
+     * @param string $class Full class will be "glyphicon glyphicon-$class"
+     * @param string $title For title attribute
+     * @return string
+     */
+    private function getGlyphicon($class, $title = '')
+    {
+        return '<span class="glyphicon glyphicon-' . $class . '" title="' . $title . '"></span>';
     }
 
     /**
