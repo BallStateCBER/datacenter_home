@@ -85,7 +85,9 @@
 							]);
 							$time_ago_split = explode(', ', $timeAgo);
 							$timeAgo = $time_ago_split[0];
-							echo str_replace(' ago', '', $timeAgo);
+                            $timeAgo = str_replace(' ago', '', $timeAgo);
+                            list($number, $unit) = explode(' ', $timeAgo);
+                            echo $number . substr($unit, 0, 1);
 						?>
 					</td>
 					<?php foreach ($servers as $server): ?>
