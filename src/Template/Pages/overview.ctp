@@ -95,9 +95,15 @@
                             echo $number . substr($unit, 0, 1);
 						?>
 					</td>
-                    <td class="check-auto-deploy" data-site="<?= $repo['name'] ?>">
+                    <?php if (isset($sites[$repo['name']]['production'])): ?>
+                        <td class="check-auto-deploy" data-site="<?= $repo['name'] ?>">
 
-                    </td>
+                        </td>
+                    <?php else: ?>
+                        <td>
+                            <span class="na">N/A</span>
+                        </td>
+                    <?php endif; ?>
 					<?php foreach ($servers as $server): ?>
 						<?php
 							$url = isset($sites[$repo['name']][$server]) ? $sites[$repo['name']][$server] : null;
