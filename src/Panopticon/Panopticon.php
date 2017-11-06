@@ -174,7 +174,7 @@ class Panopticon
         /** @var \Github\Api\Organization $org */
         $org = $client->api('organization');
         $repos = $org->repositories($orgName);
-        /** @var \Github\Api\Repo $repo */
+        /** @var \Github\Api\Repo $apiRepo */
         $apiRepo = $client->api('repo');
         foreach ($repos as $i => $repo) {
             // Figure out what branches this repo has
