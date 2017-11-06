@@ -170,10 +170,18 @@ class Panopticon
         $orgName = 'BallStateCBER';
         $client->authenticate($token, '', $method);
 
-        // Loop through all of BallStateCBER's repos
+
         /** @var \Github\Api\Organization $org */
         $org = $client->api('organization');
-        $repos = $org->repositories($orgName);
+        $pageNum = 1;
+        $repos = [];
+        do {
+            $page = $org->repositories($orgName, 'all', $pageNum);
+            $repos = array_merge($repos, $page);
+            $pageNum++;
+        } while (!empty($page));
+
+        // Loop through all of BallStateCBER's repos
         /** @var \Github\Api\Repo $apiRepo */
         $apiRepo = $client->api('repo');
         foreach ($repos as $i => $repo) {
