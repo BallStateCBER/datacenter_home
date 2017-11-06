@@ -67,6 +67,11 @@ class Panopticon
             'datacenter-plugin-cakephp3' => [
                 'title' => 'Data Center Plugin (CakePHP 3)'
             ],
+            'deploy' => [
+                'title' => 'CBER Deploy-bot',
+                'production' => 'http://deploy.cberdata.org',
+                'development' => 'http://deploy.localhost'
+            ],
             'economicIndicators' => [
                 'title' => 'Economic Indicators',
                 'production' => 'http://indicators.cberdata.org',
