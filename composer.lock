@@ -58,17 +58,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BallStateCBER/datacenter-plugin-cakephp3.git",
-                "reference": "7cfa37b7eda0c79f7f55364ea798ed1235e076a0"
+                "reference": "d990b1f59106c8b933fec8d1da2e478197ff36d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BallStateCBER/datacenter-plugin-cakephp3/zipball/7cfa37b7eda0c79f7f55364ea798ed1235e076a0",
-                "reference": "7cfa37b7eda0c79f7f55364ea798ed1235e076a0",
+                "url": "https://api.github.com/repos/BallStateCBER/datacenter-plugin-cakephp3/zipball/d990b1f59106c8b933fec8d1da2e478197ff36d8",
+                "reference": "d990b1f59106c8b933fec8d1da2e478197ff36d8",
                 "shasum": ""
             },
             "require": {
                 "cakephp/cakephp": "^3.5",
                 "cakephp/cakephp-codesniffer": "*",
+                "composer/composer": "^1.5.2",
                 "php": ">=5.4.16",
                 "twbs/bootstrap": "~3.0"
             },
