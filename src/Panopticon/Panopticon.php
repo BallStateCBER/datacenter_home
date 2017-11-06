@@ -167,18 +167,18 @@ class Panopticon
         $client = new Client();
         $token = Configure::read('github_api_token');
         $method = Client::AUTH_HTTP_TOKEN;
-        $username = 'BallStateCBER';
+        $orgName = 'BallStateCBER';
         $client->authenticate($token, '', $method);
 
         // Loop through all of BallStateCBER's repos
-        /** @var \Github\Api\CurrentUser $user */
-        $user = $client->api('user');
-        $repos = $user->repositories($username);
+        /** @var \Github\Api\Organization $org */
+        $org = $client->api('organization');
+        $repos = $org->repositories($orgName);
         /** @var \Github\Api\Repo $repo */
         $apiRepo = $client->api('repo');
         foreach ($repos as $i => $repo) {
             // Figure out what branches this repo has
-            $branches = $apiRepo->branches($username, $repo['name']);
+            $branches = $apiRepo->branches($orgName, $repo['name']);
             $hasMasterBranch = false;
             $hasDevBranch = false;
             $devSha = null;
@@ -201,12 +201,12 @@ class Panopticon
                 $freshestBranch = null;
                 $updated = null;
                 if ($hasDevBranch) {
-                    $devCommit = $apiRepo->commits()->show($username, $repo['name'], $devSha);
+                    $devCommit = $apiRepo->commits()->show($orgName, $repo['name'], $devSha);
                     $freshestBranch = 'development';
                     $updated = $devCommit['commit']['committer']['date'];
                 }
                 foreach ($extraBranches as $branchName => $branchSha) {
-                    $commit = $apiRepo->commits()->show($username, $repo['name'], $branchSha);
+                    $commit = $apiRepo->commits()->show($orgName, $repo['name'], $branchSha);
                     if ($commit['commit']['committer']['date'] > $updated) {
                         $freshestBranch = $branchName;
                         $updated = $commit['commit']['committer']['date'];
@@ -218,7 +218,7 @@ class Panopticon
             // Determine how ahead/behind master is vs. most recently-updated non-master branch
             $canCompare = $hasMasterBranch && $baseBranch;
             if ($canCompare) {
-                $compare = $apiRepo->commits()->compare($username, $repo['name'], $baseBranch, 'master');
+                $compare = $apiRepo->commits()->compare($orgName, $repo['name'], $baseBranch, 'master');
                 switch ($compare['status']) {
                     case 'identical':
                         $status = $this->getGlyphicon('ok-sign', 'Identical');
