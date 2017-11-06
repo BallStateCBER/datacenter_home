@@ -26,3 +26,6 @@ composer.phar
 
 # Code coverage report
 /build/logs/clover.xml
+
+# Files copied from /vendor
+/webroot/fonts/glyphicons-*
