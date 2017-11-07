@@ -2,6 +2,7 @@
 namespace App\Panopticon;
 
 use Cake\Core\Configure;
+use Cake\Utility\Hash;
 use Github\Client;
 
 class Panopticon
@@ -157,101 +158,45 @@ class Panopticon
     }
 
     /**
-     * Returns an array of the BallStateCBER organization's repositories, sorted by last push
+     * Returns an authenticated GitHub API client object
      *
-     * @return array
+     * @return Client
      */
-    public function getReposFromGitHub()
+    private function getGithubApiClient()
     {
-        // Connect to GitHub API
         $client = new Client();
         $token = Configure::read('github_api_token');
         $method = Client::AUTH_HTTP_TOKEN;
-        $orgName = 'BallStateCBER';
         $client->authenticate($token, '', $method);
 
+        return $client;
+    }
 
-        /** @var \Github\Api\Organization $org */
-        $org = $client->api('organization');
-        $pageNum = 1;
-        $repos = [];
-        do {
-            $page = $org->repositories($orgName, 'all', $pageNum);
-            $repos = array_merge($repos, $page);
-            $pageNum++;
-        } while (!empty($page));
-
-        // Loop through all of BallStateCBER's repos
+    /**
+     * Returns an array of the branch names for the specified repo
+     *
+     * @param Client $client GitHub API client
+     * @param string $orgName Organization name
+     * @param string $repoName Repo name
+     * @return array
+     */
+    private function getBranches($client, $orgName, $repoName)
+    {
         /** @var \Github\Api\Repo $apiRepo */
         $apiRepo = $client->api('repo');
-        foreach ($repos as $i => $repo) {
-            // Figure out what branches this repo has
-            $branches = $apiRepo->branches($orgName, $repo['name']);
-            $hasMasterBranch = false;
-            $hasDevBranch = false;
-            $devSha = null;
-            $extraBranches = [];
-            foreach ($branches as $branch) {
-                if ($branch['name'] == 'master') {
-                    $hasMasterBranch = true;
-                } elseif ($branch['name'] == 'development') {
-                    $hasDevBranch = true;
-                    $devSha = $branch['commit']['sha'];
-                } else {
-                    $extraBranches[$branch['name']] = $branch['commit']['sha'];
-                }
-                $repos[$i]['branches'][] = $branch['name'];
-            }
+        $branches = $apiRepo->branches($orgName, $repoName);
 
-            // Determine which branch the master branch should be compared to
-            $baseBranch = $hasDevBranch ? 'development' : null;
-            if ($hasMasterBranch && ! empty($extraBranches)) {
-                $freshestBranch = null;
-                $updated = null;
-                if ($hasDevBranch) {
-                    $devCommit = $apiRepo->commits()->show($orgName, $repo['name'], $devSha);
-                    $freshestBranch = 'development';
-                    $updated = $devCommit['commit']['committer']['date'];
-                }
-                foreach ($extraBranches as $branchName => $branchSha) {
-                    $commit = $apiRepo->commits()->show($orgName, $repo['name'], $branchSha);
-                    if ($commit['commit']['committer']['date'] > $updated) {
-                        $freshestBranch = $branchName;
-                        $updated = $commit['commit']['committer']['date'];
-                    }
-                }
-                $baseBranch = $freshestBranch;
-            }
+        return Hash::extract($branches, '{n}.name');
+    }
 
-            // Determine how ahead/behind master is vs. most recently-updated non-master branch
-            $canCompare = $hasMasterBranch && $baseBranch;
-            if ($canCompare) {
-                $compare = $apiRepo->commits()->compare($orgName, $repo['name'], $baseBranch, 'master');
-                switch ($compare['status']) {
-                    case 'identical':
-                        $status = $this->getGlyphicon('ok-sign', 'Identical');
-                        break;
-                    case 'ahead':
-                        $aheadBranch = $baseBranch ? " of $baseBranch" : '';
-                        $title = 'Ahead' . $aheadBranch . ' for some reason';
-                        $status = $this->getGlyphicon('circle-arrow-right', $title);
-                        $status .= ' ' . $compare['ahead_by'];
-                        break;
-                    case 'behind':
-                        $behindBranch = $baseBranch ? " $baseBranch" : '';
-                        $status = $this->getGlyphicon('circle-arrow-left', 'Behind' . $behindBranch);
-                        $status .= ' ' . $compare['behind_by'];
-                        break;
-                    default:
-                        $status = $this->getGlyphicon('question-sign', 'Unexpected status');
-                }
-            } else {
-                $status = '<span class="na">N/A</a>';
-            }
-            $repos[$i]['master_status'] = $status;
-        }
-
-        // Sort by last push
+    /**
+     * Returns the $repos array sorted by last push, descending
+     *
+     * @param array $repos Repositories
+     * @return array
+     */
+    private function sortReposByPush($repos)
+    {
         $sortedRepos = [];
         foreach ($repos as $i => $repo) {
             $key = $repo['pushed_at'];
@@ -261,9 +206,77 @@ class Panopticon
             $sortedRepos[$key] = $repo;
         }
         krsort($sortedRepos);
-        $repos = $sortedRepos;
+
+        return $sortedRepos;
+    }
+
+    /**
+     * Returns an array of the BallStateCBER organization's repositories, sorted by last push
+     *
+     * @return array
+     */
+    public function getReposFromGitHub()
+    {
+        // Get all repos
+        $client = $this->getGithubApiClient();
+        /** @var \Github\Api\Organization $org */
+        $org = $client->api('organization');
+        $orgName = 'BallStateCBER';
+        $pageNum = 1;
+        $repos = [];
+        do {
+            $page = $org->repositories($orgName, 'all', $pageNum);
+            $repos = array_merge($repos, $page);
+            $pageNum++;
+        } while (!empty($page));
+        $repos = $this->sortReposByPush($repos);
+
+        // Add branches and master_status to each repo
+        foreach ($repos as $i => $repo) {
+            $repos[$i]['branches'] = $this->getBranches($client, $orgName, $repo['name']);
+            $hasDevBranch = array_search('development', $repos[$i]['branches']);
+            $baseBranch = $hasDevBranch ? 'development' : null;
+            $repos[$i]['master_status'] = $this->getMasterBranchStatus($client, $baseBranch, $orgName, $repo['name']);
+        }
 
         return $repos;
+    }
+
+    /**
+     * Returns an HTML string representing the master branch's status relative to $baseBranch (e.g. behind by X commits)
+     *
+     * @param Client $client GitHub API client
+     * @param string $baseBranch Branch to compare master branch to
+     * @param string $orgName GitHub organization name
+     * @param string $repoName Repo name
+     * @return string
+     */
+    private function getMasterBranchStatus($client, $baseBranch, $orgName, $repoName)
+    {
+        if (!$baseBranch) {
+            return '<span class="na">N/A</a>';
+        }
+
+        /** @var \Github\Api\Repo $apiRepo */
+        $apiRepo = $client->api('repo');
+        $compare = $apiRepo->commits()->compare($orgName, $repoName, $baseBranch, 'master');
+        switch ($compare['status']) {
+            case 'identical':
+                return $this->getGlyphicon('ok-sign', 'Identical');
+            case 'ahead':
+                $aheadBranch = $baseBranch ? " of $baseBranch" : '';
+                $title = 'Ahead' . $aheadBranch . ' for some reason';
+
+                return $this->getGlyphicon('circle-arrow-right', $title) . ' ' . $compare['ahead_by'];
+            case 'behind':
+                $behindBranch = $baseBranch ? " $baseBranch" : '';
+
+                return
+                    $this->getGlyphicon('circle-arrow-left', 'Behind' . $behindBranch) .
+                    ' ' . $compare['behind_by'];
+            default:
+                return $this->getGlyphicon('question-sign', 'Unexpected status');
+        }
     }
 
     /**
