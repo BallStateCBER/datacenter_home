@@ -55,6 +55,7 @@ class Panopticon
             'datacenter_home' => [
                 'title' => 'CBER Data Center Home (CakePHP 3)',
                 'production' => 'http://cberdata.org',
+                'staging' => 'http://staging.home.cberdata.org',
                 'development' => 'http://dchome3.localhost'
             ],
             'datacenter_skeleton' => [
@@ -99,6 +100,7 @@ class Panopticon
             'muncie_events' => [
                 'title' => 'Muncie Events (CakePHP 2)',
                 'production' => 'http://muncieevents.com',
+                'staging' => 'http://staging.muncieevents.com',
                 'development' => 'http://muncie-events.localhost'
             ],
             'muncie_events3' => [
@@ -118,6 +120,7 @@ class Panopticon
             'tax-calculator' => [
                 'title' => 'Tax Savings Calculator',
                 'production' => 'http://tax-comparison.cberdata.org',
+                'staging' => 'http://staging.tax-comparison.cberdata.org',
                 'development' => 'http://tax-calculator3.localhost'
             ],
             'dataCenterPlugin' => [
@@ -132,13 +135,16 @@ class Panopticon
             'cri' => [
                 'title' => 'Community Readiness Initiative',
                 'production' => 'https://cri.cberdata.org',
+                'staging' => 'https://staging.cri.cberdata.org',
                 'development' => 'https://cri.localhost'
             ],
             'utilities' => [
                 'title' => 'CBER Utilities'
             ],
             'whyarewehere' => [
-                'title' => 'Why Are We Here?'
+                'title' => 'Why Are We Here?',
+                'production' => 'http://studentwork.cberdata.org',
+                'staging' => 'http://staging.studentwork.cberdata.org'
             ]
         ];
     }

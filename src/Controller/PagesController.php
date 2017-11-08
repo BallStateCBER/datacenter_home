@@ -93,7 +93,7 @@ class PagesController extends AppController
             'repositories' => $repositories,
             'sites' => $sites,
             'isLocalhost' => $isLocalhost,
-            'servers' => $isLocalhost ? ['development', 'production'] : ['production'],
+            'environments' => ['production', 'staging'] + ($isLocalhost ? ['development'] : []),
             'retired' => $retired
         ]);
     }

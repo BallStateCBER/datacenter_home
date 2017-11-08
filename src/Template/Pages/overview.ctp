@@ -34,22 +34,13 @@
                     <br />
                     Deployed
                 </th>
-				<?php if ($isLocalhost): ?>
-					<th>
-						Status
-						<br />
-						(Dev)
-					</th>
-					<th>
-						Status
-						<br />
-						(Production)
-					</th>
-				<?php else: ?>
-					<th>
-						Status
-					</th>
-				<?php endif; ?>
+                <?php foreach ($environments as $environment): ?>
+                    <th>
+                        Status
+                        <br />
+                        (<?= $environment ?>)
+                    </th>
+                <?php endforeach; ?>
 			</tr>
 		</thead>
 		<tbody>
@@ -64,11 +55,11 @@
 									Repo
 								</a>
 							</li>
-							<?php foreach (['development', 'production'] as $server): ?>
-								<?php if (isset($sites[$repo['name']][$server])): ?>
+							<?php foreach ($environments as $environment): ?>
+								<?php if (isset($sites[$repo['name']][$environment])): ?>
 									<li>
-										<a href="<?= $sites[$repo['name']][$server] ?>">
-											<?= ucwords($server) ?>
+										<a href="<?= $sites[$repo['name']][$environment] ?>">
+											<?= ucwords($environment) ?>
 										</a>
 									</li>
 								<?php endif; ?>
@@ -104,12 +95,14 @@
                             <span class="na">N/A</span>
                         </td>
                     <?php endif; ?>
-					<?php foreach ($servers as $server): ?>
+					<?php foreach ($environments as $environment): ?>
 						<?php
-							$url = isset($sites[$repo['name']][$server]) ? $sites[$repo['name']][$server] : null;
+							$url = isset($sites[$repo['name']][$environment])
+                                ? $sites[$repo['name']][$environment]
+                                : null;
 						?>
 						<?php if ($url): ?>
-							<td class="check_status" data-url="<?= $url ?>" data-server="<?= $server ?>">
+							<td class="check_status" data-url="<?= $url ?>" data-server="<?= $environment ?>">
 
 							</td>
 						<?php else: ?>
