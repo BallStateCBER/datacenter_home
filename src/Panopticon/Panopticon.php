@@ -240,7 +240,7 @@ class Panopticon
         // Add branches and master_status to each repo
         foreach ($repos as $i => $repo) {
             $repos[$i]['branches'] = $this->getBranches($client, $orgName, $repo['name']);
-            $hasDevBranch = array_search('development', $repos[$i]['branches']);
+            $hasDevBranch = array_search('development', $repos[$i]['branches']) !== false;
             $baseBranch = $hasDevBranch ? 'development' : null;
             $repos[$i]['master_status'] = $this->getMasterBranchStatus($client, $baseBranch, $orgName, $repo['name']);
         }
