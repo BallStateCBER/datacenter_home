@@ -18,7 +18,7 @@
 <?php $this->assign('sidebar', $this->element('sidebar')); ?>
 
 <?php $this->append('scriptBottom'); ?>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>$.fn.modal || document.write('<script src="/js/bootstrap.min.js"><\/script>')</script>
 <?php $this->end(); ?>
 
