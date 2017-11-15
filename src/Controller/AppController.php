@@ -54,6 +54,17 @@ class AppController extends Controller
     }
 
     /**
+     * beforeFilter event
+     *
+     * @param Event $event Event object
+     * @return void
+     */
+    public function beforeFilter(Event $event)
+    {
+        $this->Security->requireSecure();
+    }
+
+    /**
      * Pulls the latest release from the Projects and Publications site
      *
      * @return mixed
