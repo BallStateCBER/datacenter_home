@@ -74,11 +74,19 @@ class AppController extends Controller
         // Development server
         if (stripos($_SERVER['SERVER_NAME'], 'localhost') !== false) {
             $url = 'https://projects.localhost/releases/latest';
-            // Production server
+            $streamOptions = [
+                'ssl' => [
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                ]
+            ];
+            $results = file_get_contents($url, false, stream_context_create($streamOptions));
+
+        // Production server
         } else {
             $url = 'https://projects.cberdata.org/releases/latest';
+            $results = file_get_contents($url);
         }
-        $results = file_get_contents($url);
 
         return unserialize($results);
     }
