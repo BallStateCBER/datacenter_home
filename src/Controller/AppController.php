@@ -73,10 +73,10 @@ class AppController extends Controller
     {
         // Development server
         if (stripos($_SERVER['SERVER_NAME'], 'localhost') !== false) {
-            $url = 'http://projects.localhost/releases/latest';
+            $url = 'https://projects.localhost/releases/latest';
             // Production server
         } else {
-            $url = 'http://projects.cberdata.org/releases/latest';
+            $url = 'https://projects.cberdata.org/releases/latest';
         }
         $results = file_get_contents($url);
 
