@@ -25,6 +25,9 @@ table.table {
 		color: #999;
 		font-size: 80%;
 	}
+	td:first-child {
+		width: 300px;
+	}
 	td:last-child {
 		span.debug {
 			color: red;
@@ -61,4 +64,7 @@ table.table {
 			padding-left: 10px;
 		}
 	}
+}
+.nav::after {
+	clear: none;
 }

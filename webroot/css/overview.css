@@ -24,6 +24,9 @@ table.table span.na {
   color: #999;
   font-size: 80%;
 }
+table.table td:first-child {
+  width: 300px;
+}
 table.table td:last-child span.debug {
   color: red;
   font-size: inherit;
@@ -53,4 +56,7 @@ table.table tr.issues ul {
   margin-top: -10px;
   margin-bottom: 0;
   padding-left: 10px;
+}
+.nav::after {
+  clear: none;
 }

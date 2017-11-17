@@ -9,7 +9,34 @@
 		No <a href="https://github.com/BallStateCBER">BallStateCBER GitHub repositories</a> found.
 	</p>
 <?php else: ?>
-	<table class="table">
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <?php foreach (['status', 'git', 'issues', 'auto-deploy'] as $n => $tab): ?>
+            <li role="presentation" <?php if ($n === 0): ?>class="active"<?php endif; ?>>
+                <a href="#<?= $tab ?>" aria-controls="<?= $tab ?>" role="tab" data-toggle="tab">
+                    <?= ucwords($tab) ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="status">
+            <?= $this->element('Panopticon/status') ?>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="git">
+            <?= $this->element('Panopticon/git') ?>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="issues">
+            <?= $this->element('Panopticon/issues') ?>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="auto-deploy">
+            <?= $this->element('Panopticon/auto_deploy') ?>
+        </div>
+    </div>
+</div>
+<?php /*
+<table class="table">
 		<thead>
 			<tr>
 				<th>
@@ -115,6 +142,8 @@
 			<?php endforeach; ?>
 		</tbody>
 	</table>
+*/ ?>
+
 <?php endif; ?>
 
 <?php $this->Html->script('overview', ['block' => 'scriptBottom']); ?>
