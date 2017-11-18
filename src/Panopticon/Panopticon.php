@@ -17,8 +17,8 @@ class Panopticon
         return [
             'brownfield' => [
                 'title' => 'Brownfield Grant Writers\' Tool',
-                'production' => 'http://brownfield.cberdata.org',
-                'development' => 'http://brownfield.localhost/'
+                'production' => 'https://brownfield.cberdata.org',
+                'development' => 'https://brownfield.localhost/'
             ],
             'brownfields-updater' => [
                 'title' => 'Brownfield Grant Writers\' Tool Data Importer'
@@ -28,80 +28,80 @@ class Panopticon
             ],
             'commentaries' => [
                 'title' => 'Weekly Commentaries',
-                'production' => 'http://commentaries.cberdata.org',
-                'development' => 'http://commentaries.localhost'
+                'production' => 'https://commentaries.cberdata.org',
+                'development' => 'https://commentaries.localhost'
             ],
             'commentaries_cake3' => [
                 'title' => 'Weekly Commentaries (CakePHP 3)'
             ],
             'communityAssetInventory' => [
                 'title' => 'Community Asset Inventory',
-                'production' => 'http://asset.cberdata.org',
-                'development' => 'http://qop.localhost'
+                'production' => 'https://asset.cberdata.org',
+                'development' => 'https://qop.localhost'
             ],
             'conexus' => [
                 'title' => 'Conexus Indiana Report Card',
-                'production' => 'http://conexus.cberdata.org',
-                'development' => 'http://conexus.localhost'
+                'production' => 'https://conexus.cberdata.org',
+                'development' => 'https://conexus.localhost'
             ],
             'countyProfiles' => [
                 'title' => 'County Profiles',
-                'production' => 'http://profiles.cberdata.org',
-                'development' => 'http://profiles.localhost'
+                'production' => 'https://profiles.cberdata.org',
+                'development' => 'https://profiles.localhost'
             ],
             'county-profiles-updater' => [
                 'title' => 'County Profiles Updater'
             ],
             'datacenter_home' => [
                 'title' => 'CBER Data Center Home (CakePHP 3)',
-                'production' => 'http://cberdata.org',
-                'staging' => 'http://staging.home.cberdata.org',
-                'development' => 'http://dchome3.localhost'
+                'production' => 'https://cberdata.org',
+                'staging' => 'https://staging.home.cberdata.org',
+                'development' => 'https://dchome3.localhost'
             ],
             'datacenter_skeleton' => [
                 'title' => 'CBER Data Center Website Skeleton'
             ],
             'dataCenterHome' => [
                 'title' => 'CBER Data Center Home (CakePHP 2)',
-                'production' => 'http://cberdata.org',
-                'development' => 'http://dchome.localhost'
+                'production' => 'https://cberdata.org',
+                'development' => 'https://dchome.localhost'
             ],
             'datacenter-plugin-cakephp3' => [
                 'title' => 'Data Center Plugin (CakePHP 3)'
             ],
             'deploy' => [
                 'title' => 'CBER Deploy-bot',
-                'production' => 'http://deploy.cberdata.org',
-                'development' => 'http://deploy.localhost'
+                'production' => 'https://deploy.cberdata.org',
+                'development' => 'https://deploy.localhost'
             ],
             'economicIndicators' => [
                 'title' => 'Economic Indicators',
-                'production' => 'http://indicators.cberdata.org',
-                'development' => 'http://indicators.localhost'
+                'production' => 'https://indicators.cberdata.org',
+                'development' => 'https://indicators.localhost'
             ],
             'honest-pledge' => [
                 'title' => 'Honest Muncie Pledge',
-                'production' => 'http://pledge.honestmuncie.org',
-                'development' => 'http://honestpledge.localhost'
+                'production' => 'https://pledge.honestmuncie.org',
+                'development' => 'https://honestpledge.localhost'
             ],
             'ice-miller-cakephp3' => [
                 'title' => 'Ice Miller / EDGE Articles',
-                'production' => 'http://icemiller.cberdata.org',
-                'development' => 'http://icemiller3.localhost'
+                'production' => 'https://icemiller.cberdata.org',
+                'development' => 'https://icemiller3.localhost'
             ],
             'mfg-scr-crd' => [
                 'title' => 'Manufacturing Scorecard'
             ],
             'muncieMusicFest2' => [
                 'title' => 'Muncie MusicFest (CakePHP 3)',
-                'production' => 'http://munciemusicfest.com',
-                'development' => 'http://mmf.localhost'
+                'production' => 'https://munciemusicfest.com',
+                'development' => 'https://mmf.localhost'
             ],
             'muncie_events' => [
                 'title' => 'Muncie Events (CakePHP 2)',
-                'production' => 'http://muncieevents.com',
-                'staging' => 'http://staging.muncieevents.com',
-                'development' => 'http://muncie-events.localhost'
+                'production' => 'https://muncieevents.com',
+                'staging' => 'https://staging.muncieevents.com',
+                'development' => 'https://muncie-events.localhost'
             ],
             'muncie_events3' => [
                 'title' => 'Muncie Events (CakePHP 3)'
@@ -111,17 +111,17 @@ class Panopticon
             ],
             'projects' => [
                 'title' => 'CBER Projects and Publications',
-                'production' => 'http://projects.cberdata.org',
-                'development' => 'http://projects.localhost'
+                'production' => 'https://projects.cberdata.org',
+                'development' => 'https://projects.localhost'
             ],
             'roundtable' => [
                 'title' => 'BSU Roundtable (CakePHP 2)'
             ],
             'tax-calculator' => [
                 'title' => 'Tax Savings Calculator',
-                'production' => 'http://tax-comparison.cberdata.org',
-                'staging' => 'http://staging.tax-comparison.cberdata.org',
-                'development' => 'http://tax-calculator3.localhost'
+                'production' => 'https://tax-comparison.cberdata.org',
+                'staging' => 'https://staging.tax-comparison.cberdata.org',
+                'development' => 'https://tax-calculator3.localhost'
             ],
             'dataCenterPlugin' => [
                 'title' => 'Data Center Plugin (CakePHP 2)'
@@ -143,8 +143,8 @@ class Panopticon
             ],
             'whyarewehere' => [
                 'title' => 'Why Are We Here?',
-                'production' => 'http://studentwork.cberdata.org',
-                'staging' => 'http://staging.studentwork.cberdata.org'
+                'production' => 'https://studentwork.cberdata.org',
+                'staging' => 'https://staging.studentwork.cberdata.org'
             ]
         ];
     }
