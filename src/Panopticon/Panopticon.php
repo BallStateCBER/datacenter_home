@@ -106,6 +106,12 @@ class Panopticon
             'muncie_events3' => [
                 'title' => 'Muncie Events (CakePHP 3)'
             ],
+            'muncie-events-api' => [
+                'title' => 'Muncie Events API',
+                'production' => 'https://api.muncieevents.com',
+                'staging' => 'https://staging.api.muncieevents.com',
+                'development' => 'https://meapi.localhost'
+            ],
             'notes' => [
                 'title' => 'CBER Web Development Notes'
             ],
