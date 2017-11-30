@@ -34,8 +34,6 @@ class AppController extends Controller
      *
      * Use this method to add common initialization code like loading components.
      *
-     * e.g. `$this->loadComponent('Security');`
-     *
      * @return void
      */
     public function initialize()
@@ -44,24 +42,12 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('DataCenter.Flash');
-        $this->loadComponent('Security', ['blackHoleCallback' => 'forceSSL']);
 
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Csrf');
-    }
-
-    /**
-     * beforeFilter event
-     *
-     * @param Event $event Event object
-     * @return void
-     */
-    public function beforeFilter(Event $event)
-    {
-        $this->Security->requireSecure();
     }
 
     /**
@@ -130,15 +116,5 @@ class AppController extends Controller
         $this->set([
             'latestRelease' => $this->getLatestRelease()
         ]);
-    }
-
-    /**
-     * Redirects the current request to HTTPS
-     *
-     * @return \Cake\Http\Response
-     */
-    public function forceSSL()
-    {
-        return $this->redirect('https://' . env('SERVER_NAME') . $this->request->getRequestTarget());
     }
 }
