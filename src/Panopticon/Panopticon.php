@@ -116,9 +116,14 @@ class Panopticon
                 'title' => 'CBER Web Development Notes'
             ],
             'projects' => [
-                'title' => 'CBER Projects and Publications',
+                'title' => 'CBER Projects and Publications (CakePHP 2)',
                 'production' => 'https://projects.cberdata.org',
                 'development' => 'https://projects.localhost'
+            ],
+            'projects-cakephp3' => [
+                'title' => 'CBER Projects and Publications (CakePHP 3)',
+                'production' => 'https://projects3.cberdata.org',
+                'development' => 'https://projects3.localhost'
             ],
             'roundtable' => [
                 'title' => 'BSU Roundtable (CakePHP 2)'
