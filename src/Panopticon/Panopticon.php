@@ -97,12 +97,6 @@ class Panopticon
                 'production' => 'https://munciemusicfest.com',
                 'development' => 'https://mmf.localhost'
             ],
-            'muncie_events' => [
-                'title' => 'Muncie Events (CakePHP 2)',
-                'production' => 'https://muncieevents.com',
-                'staging' => 'https://staging.muncieevents.com',
-                'development' => 'https://muncie-events.localhost'
-            ],
             'muncie_events3' => [
                 'title' => 'Muncie Events (CakePHP 3)'
             ],
@@ -171,6 +165,7 @@ class Panopticon
         return [
             // CakePHP 2 versions of sites that have been upgraded to CakePHP 3
             'ice_miller',
+            'muncie_events',
             'taxCalculator'
         ];
     }
