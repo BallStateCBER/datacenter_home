@@ -123,6 +123,7 @@ class Panopticon
             'projects-cakephp3' => [
                 'title' => 'CBER Projects and Publications (CakePHP 3)',
                 'production' => 'https://projects3.cberdata.org',
+                'staging' => 'https://staging.projects3.cberdata.org',
                 'development' => 'https://projects3.localhost'
             ],
             'roundtable' => [
