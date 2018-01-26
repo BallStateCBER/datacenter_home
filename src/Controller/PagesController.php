@@ -46,6 +46,22 @@ class PagesController extends AppController
      */
     public function phpinfo()
     {
+        $hiddenServerVars = [
+            'SECURITY_SALT',
+            'FULL_BASE_URL',
+            'DB_DATABASE',
+            'DB_USERNAME',
+            'DB_PASSWORD',
+            'COOKIE_ENCRYPTION_KEY',
+            'GITHUB_API_TOKEN',
+            'GOOGLE_ANALYTICS_ID',
+            'SLACK_WEBHOOK_URL'
+        ];
+        foreach ($hiddenServerVars as $var) {
+            if (array_key_exists($var, $_SERVER)) {
+                unset($_SERVER[$var]);
+            }
+        }
         $this->set('title_for_layout', 'PHP Info');
     }
 
