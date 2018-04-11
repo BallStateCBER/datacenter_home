@@ -31,10 +31,10 @@ class Panopticon
                 'production' => 'https://commentaries.cberdata.org',
                 'development' => 'https://commentaries.localhost'
             ],
-            'commentaries_cake3' => [
+            'commentaries-cake3' => [
                 'title' => 'Weekly Commentaries (CakePHP 3)'
             ],
-            'communityAssetInventory' => [
+            'community-asset-inventory' => [
                 'title' => 'Community Asset Inventory',
                 'production' => 'https://asset.cberdata.org',
                 'development' => 'https://qop.localhost'
@@ -44,7 +44,7 @@ class Panopticon
                 'production' => 'https://conexus.cberdata.org',
                 'development' => 'https://conexus.localhost'
             ],
-            'countyProfiles' => [
+            'county-profiles' => [
                 'title' => 'County Profiles',
                 'production' => 'https://profiles.cberdata.org',
                 'development' => 'https://profiles.localhost'
@@ -52,19 +52,14 @@ class Panopticon
             'county-profiles-updater' => [
                 'title' => 'County Profiles Updater'
             ],
-            'datacenter_home' => [
+            'datacenter-home' => [
                 'title' => 'CBER Data Center Home (CakePHP 3)',
                 'production' => 'https://cberdata.org',
                 'staging' => 'https://staging.home.cberdata.org',
                 'development' => 'https://dchome3.localhost'
             ],
-            'datacenter_skeleton' => [
+            'datacenter-skeleton' => [
                 'title' => 'CBER Data Center Website Skeleton'
-            ],
-            'dataCenterHome' => [
-                'title' => 'CBER Data Center Home (CakePHP 2)',
-                'production' => 'https://cberdata.org',
-                'development' => 'https://dchome.localhost'
             ],
             'datacenter-plugin-cakephp3' => [
                 'title' => 'Data Center Plugin (CakePHP 3)'
@@ -74,7 +69,7 @@ class Panopticon
                 'production' => 'https://deploy.cberdata.org',
                 'development' => 'https://deploy.localhost'
             ],
-            'economicIndicators' => [
+            'economic-indicators' => [
                 'title' => 'Economic Indicators',
                 'production' => 'https://indicators.cberdata.org',
                 'development' => 'https://indicators.localhost'
@@ -92,18 +87,18 @@ class Panopticon
             'mfg-scr-crd' => [
                 'title' => 'Manufacturing Scorecard'
             ],
-            'muncieMusicFest2' => [
+            'muncie-musicfest2' => [
                 'title' => 'Muncie MusicFest (CakePHP 3)',
                 'production' => 'https://munciemusicfest.com',
                 'development' => 'https://mmf.localhost'
             ],
-            'muncie_events' => [
+            'muncie-events' => [
                 'title' => 'Muncie Events (CakePHP 2)',
                 'production' => 'https://muncieevents.com',
                 'staging' => 'https://staging.muncieevents.com',
                 'development' => 'https://muncie-events.localhost'
             ],
-            'muncie_events3' => [
+            'muncie-events3' => [
                 'title' => 'Muncie Events (CakePHP 3)'
             ],
             'muncie-events-api' => [
@@ -135,10 +130,10 @@ class Panopticon
                 'staging' => 'https://staging.tax-comparison.cberdata.org',
                 'development' => 'https://tax-calculator3.localhost'
             ],
-            'dataCenterPlugin' => [
+            'datacenter-plugin' => [
                 'title' => 'Data Center Plugin (CakePHP 2)'
             ],
-            'dataCenterTemplate' => [
+            'data-center-template' => [
                 'title' => 'Data Center Template'
             ],
             'GoogleCharts' => [
@@ -153,8 +148,8 @@ class Panopticon
             'utilities' => [
                 'title' => 'CBER Utilities'
             ],
-            'whyarewehere' => [
-                'title' => 'Why Are We Here?',
+            'student-work' => [
+                'title' => 'Student Work Tracker',
                 'production' => 'https://studentwork.cberdata.org',
                 'staging' => 'https://staging.studentwork.cberdata.org'
             ]
@@ -170,8 +165,9 @@ class Panopticon
     {
         return [
             // CakePHP 2 versions of sites that have been upgraded to CakePHP 3
-            'ice_miller',
-            'taxCalculator'
+            'datacenter-home-cakephp2',
+            'ice-miller-cakephp2',
+            'tax-calculator-cakephp2'
         ];
     }
 
