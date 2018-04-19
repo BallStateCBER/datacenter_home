@@ -152,7 +152,10 @@ class Panopticon
                 'title' => 'Student Work Tracker',
                 'production' => 'https://studentwork.cberdata.org',
                 'staging' => 'https://staging.studentwork.cberdata.org'
-            ]
+            ],
+            'school-rankings' => [
+                'title' => 'School Rankings'
+            ],
         ];
     }
 
