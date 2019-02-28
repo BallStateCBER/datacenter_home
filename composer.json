@@ -16,7 +16,8 @@
         "xety/cake3-cookieauth": "1.*",
         "knplabs/github-api": "^2.5",
         "php-http/guzzle6-adapter": "^1.1",
-        "composer/composer": "1.5.2"
+        "composer/composer": "1.5.2",
+        "ext-curl": "*"
     },
     "require-dev": {
         "cakephp/bake": "~1.1",
