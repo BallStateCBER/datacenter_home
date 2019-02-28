@@ -32,12 +32,17 @@ class Panopticon
                 'development' => 'https://commentaries.localhost'
             ],
             'commentaries-cake3' => [
-                'title' => 'Weekly Commentaries (CakePHP 3)'
+                'title' => 'Weekly Commentaries (CakePHP 3)',
+                'production' => 'https://cake3.commentaries.cberdata.org'
             ],
             'community-asset-inventory' => [
-                'title' => 'Community Asset Inventory',
+                'title' => 'Community Asset Inventory (CakePHP 2)',
                 'production' => 'https://asset.cberdata.org',
                 'development' => 'https://qop.localhost'
+            ],
+            'community-asset-inventory-cakephp3' => [
+                'title' => 'Community Asset Inventory (CakePHP 3)',
+                'development' => 'https://asset.localhost'
             ],
             'conexus' => [
                 'title' => 'Conexus Indiana Report Card',
@@ -99,7 +104,10 @@ class Panopticon
                 'development' => 'https://muncie-events.localhost'
             ],
             'muncie-events3' => [
-                'title' => 'Muncie Events (CakePHP 3)'
+                'title' => 'Muncie Events (CakePHP 3)',
+                'production' => 'https://cake3.muncieevents.com',
+                'staging' => 'https://staging.cake3.muncieevents.com',
+                'development' => 'https://muncieevents3.localhost'
             ],
             'muncie-events-api' => [
                 'title' => 'Muncie Events API',
@@ -154,7 +162,8 @@ class Panopticon
                 'staging' => 'https://staging.studentwork.cberdata.org'
             ],
             'school-rankings' => [
-                'title' => 'School Rankings'
+                'title' => 'School Rankings',
+                'production' => 'https://school.cberdata.org',
             ],
         ];
     }
