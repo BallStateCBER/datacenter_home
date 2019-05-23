@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb3458786a6f16cdc12711fdea496978",
+    "content-hash": "3fd0eab0793b204f61ace30978484df2",
     "packages": [
         {
             "name": "aura/intl",
@@ -58,19 +58,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BallStateCBER/datacenter-plugin-cakephp3.git",
-                "reference": "030660e2e0e61548c8f03f5835207f280ab9efd9"
+                "reference": "0bd96d29d06727ff8ec07e3c34e1596b42b56434"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BallStateCBER/datacenter-plugin-cakephp3/zipball/030660e2e0e61548c8f03f5835207f280ab9efd9",
-                "reference": "030660e2e0e61548c8f03f5835207f280ab9efd9",
+                "url": "https://api.github.com/repos/BallStateCBER/datacenter-plugin-cakephp3/zipball/0bd96d29d06727ff8ec07e3c34e1596b42b56434",
+                "reference": "0bd96d29d06727ff8ec07e3c34e1596b42b56434",
                 "shasum": ""
             },
             "require": {
                 "cakephp/cakephp": "^3.5",
                 "cakephp/cakephp-codesniffer": "*",
                 "composer/composer": "^1.5.2",
-                "php": ">=5.4.16",
+                "php": ">=7.1",
                 "twbs/bootstrap": "~3.0"
             },
             "require-dev": {
@@ -84,7 +84,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Ball State CBER DataCenter plugin for CakePHP 3",
-            "time": "2017-11-09T21:52:22+00:00"
+            "time": "2019-05-23T19:09:36+00:00"
         },
         {
             "name": "cakephp/cakephp",
@@ -4615,7 +4615,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1"
+        "php": ">=7.1",
+        "ext-curl": "*"
     },
     "platform-dev": []
 }
