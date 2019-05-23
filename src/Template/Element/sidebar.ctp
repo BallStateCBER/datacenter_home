@@ -24,7 +24,7 @@
 			);
 		?>
 		<br />
-		<a href="http://projects.cberdata.org">
+		<a href="https://projects.cberdata.org">
 			View Project Library &rarr;
 		</a>
 		<br class="clear" />

@@ -1,9 +1,9 @@
 <p>
 	The CBER Data Center makes data collection simple, visual, and easily accessible.  We've
 	collected the latest data sets from trusted primary sources, including
-	<a href="http://www.bls.gov">BLS</a>,
-	<a href="http://www.bea.gov">BEA</a>, and the
-	<a href="http://www.census.gov">U.S. Census Bureau</a>. Our economic web tools transform
+	<a href="https://www.bls.gov">BLS</a>,
+	<a href="https://www.bea.gov">BEA</a>, and the
+	<a href="https://www.census.gov">U.S. Census Bureau</a>. Our economic web tools transform
 	overwhelming walls of numbers into a format that is organized, attractive, and useful
 	for people ranging from grant writers and economic developers to community leaders and informed citizens.
 </p>
@@ -31,7 +31,7 @@
 	<tbody>
 		<tr>
 			<td>
-				<a href="http://indicators.cberdata.org/">
+				<a href="https://indicators.cberdata.org/">
 					<img src="/img/Indicators.jpg" alt="Economic Indicators" />
 				</a>
 				Regularly updated data sets from primary sources for the U.S., Indiana, and Indiana's metro areas.
@@ -44,7 +44,7 @@
 				of life and the economic conditions within each county.
 			</td>
 			<td>
-				<a href="http://profiles.cberdata.org/calculator">
+				<a href="https://profiles.cberdata.org/calculator">
 					<img src="/img/ImpactCalculator.jpg" alt="Economic Impact Calculator" />
 				</a>
 				This tool estimates the direct and indirect effects of the introduction of a new business to a county.
@@ -52,20 +52,20 @@
 		</tr>
 		<tr>
 			<td>
-				<a href="http://profiles.cberdata.org">
+				<a href="https://profiles.cberdata.org">
 					<img src="/img/Profiles.jpg" alt="Indiana County Profiles" />
 				</a>
 				County-level information including demographics, education, health, and social capital.
 			</td>
 			<td>
-				<a href="http://conexus.cberdata.org/">
+				<a href="https://conexus.cberdata.org/">
 					<img src="/img/Conexus.png" alt="Manufacturing and Logistics Report" />
 				</a>
 				Produced for Conexus Indiana, this report grades state performance on a number
 				of factors that affect the health of the manufacturing industry.
 			</td>
 			<td>
-				<a href="http://tax-comparison.cberdata.org/">
+				<a href="https://tax-comparison.cberdata.org/">
 					<img src="/img/TaxCalculator.jpg" alt="Illinois-to-Indiana Tax Savings Calculator" />
 				</a>
 				Compare daily living costs between states at the county level.
@@ -73,7 +73,7 @@
 		</tr>
 		<tr>
 			<td>
-				<a href="http://brownfield.cberdata.org/">
+				<a href="https://brownfield.cberdata.org/">
 					<img src="/img/Brownfield.jpg" alt="Brownfield Grant Writers' Tool" />
 				</a>
 				County-level information for grant writers regarding demographics, education,
@@ -81,7 +81,7 @@
 				and a calculator for estimating	the economic and fiscal effects of new business development.
 			</td>
 			<td>
-				<a href="http://commentaries.cberdata.org/">
+				<a href="https://commentaries.cberdata.org/">
 					<img src="/img/Commentary.jpg" alt="Weekly Commentary" />
 				</a>
 				Ball State economist Michael J. Hicks, Ph.D. delivers his personal perspective on
