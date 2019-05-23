@@ -37,7 +37,7 @@
 				Regularly updated data sets from primary sources for the U.S., Indiana, and Indiana's metro areas.
 			</td>
 			<td>
-				<a href="http://asset.cberdata.org/">
+				<a href="https://cair.cberdata.org/">
 					<img src="/img/CAIR.jpg" alt="Indiana Community Asset Inventory and Rankings" />
 				</a>
 				An objective, data-focused assessment of the factors that influence the quality

@@ -37,11 +37,11 @@ class Panopticon
             ],
             'community-asset-inventory' => [
                 'title' => 'Community Asset Inventory (CakePHP 2)',
-                'production' => 'https://asset.cberdata.org',
                 'development' => 'https://qop.localhost'
             ],
             'community-asset-inventory-cakephp3' => [
                 'title' => 'Community Asset Inventory (CakePHP 3)',
+                'production' => 'https://cair.cberdata.org',
                 'development' => 'https://asset.localhost'
             ],
             'conexus' => [
