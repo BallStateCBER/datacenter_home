@@ -58,11 +58,11 @@
 				County-level information including demographics, education, health, and social capital.
 			</td>
 			<td>
-				<a href="https://conexus.cberdata.org/">
+				<a href="https://mfgscorecard.cberdata.org/">
 					<img src="/img/Conexus.png" alt="Manufacturing and Logistics Report" />
 				</a>
-				Produced for Conexus Indiana, this report grades state performance on a number
-				of factors that affect the health of the manufacturing industry.
+				This report grades state performance on a number of factors that affect the health of the manufacturing
+                industry.
 			</td>
 			<td>
 				<a href="https://tax-comparison.cberdata.org/">

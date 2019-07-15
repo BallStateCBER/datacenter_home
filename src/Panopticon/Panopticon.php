@@ -46,9 +46,9 @@ class Panopticon
                 'development' => 'https://asset.localhost'
             ],
             'conexus' => [
-                'title' => 'Conexus Indiana Report Card',
-                'production' => 'https://conexus.cberdata.org',
-                'development' => 'https://conexus.localhost'
+                'title' => 'Manufacturing Score Card (formerly Conexus)',
+                'production' => 'https://mfgscorecard.cberdata.org',
+                'development' => 'https://mfgscorecard.localhost'
             ],
             'county-profiles' => [
                 'title' => 'County Profiles',
