@@ -64,12 +64,12 @@
 				This report grades state performance on a number of factors that affect the health of the manufacturing
                 industry.
 			</td>
-			<td>
-				<a href="https://tax-comparison.cberdata.org/">
-					<img src="/img/TaxCalculator.jpg" alt="Illinois-to-Indiana Tax Savings Calculator" />
-				</a>
-				Compare daily living costs between states at the county level.
-			</td>
+            <td>
+                <a href="http://coli.org/calculator/in/muncie/calculator.asp">
+                    <img src="/img/Coli.jpg" alt="Cost-of-Living Index Calculator" />
+                </a>
+                The Council for Community and Economic Research (C2ER) compiles average pricing data to compare average living costs in cities across the U.S.
+            </td>
 		</tr>
 		<tr>
 			<td>
@@ -87,12 +87,7 @@
 				Ball State economist Michael J. Hicks, Ph.D. delivers his personal perspective on
 				current issues in business, government, and society.
 			</td>
-			<td>
-				<a href="http://coli.org/calculator/in/muncie/calculator.asp">
-					<img src="/img/Coli.jpg" alt="Cost-of-Living Index Calculator" />
-				</a>
-				The Council for Community and Economic Research (C2ER) compiles average pricing data to compare average living costs in cities across the U.S.
-			</td>
+			<td></td>
 		</tr>
 	</tbody>
 </table>
