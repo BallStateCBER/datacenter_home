@@ -133,12 +133,6 @@ class Panopticon
             'roundtable' => [
                 'title' => 'BSU Roundtable (CakePHP 2)'
             ],
-            'tax-calculator' => [
-                'title' => 'Tax Savings Calculator',
-                'production' => 'https://tax-comparison.cberdata.org',
-                'staging' => 'https://staging.tax-comparison.cberdata.org',
-                'development' => 'https://tax-calculator3.localhost'
-            ],
             'datacenter-plugin' => [
                 'title' => 'Data Center Plugin (CakePHP 2)'
             ],
@@ -147,12 +141,6 @@ class Panopticon
             ],
             'GoogleCharts' => [
                 'title' => 'Google Charts Plugin for CakePHP (fork)'
-            ],
-            'cri' => [
-                'title' => 'Community Readiness Initiative',
-                'production' => 'https://cri.cberdata.org',
-                'staging' => 'https://staging.cri.cberdata.org',
-                'development' => 'https://cri.localhost'
             ],
             'utilities' => [
                 'title' => 'CBER Utilities'
@@ -172,15 +160,18 @@ class Panopticon
     /**
      * Returns an array of retired sites, referenced by their GitHub repo names
      *
+     * These sites won't be included in the panopticon list
+     *
      * @return array
      */
     public function getRetiredSites()
     {
         return [
-            // CakePHP 2 versions of sites that have been upgraded to CakePHP 3
+            'cri',
             'datacenter-home-cakephp2',
             'ice-miller-cakephp2',
-            'tax-calculator-cakephp2'
+            'tax-calculator',
+            'tax-calculator-cakephp2',
         ];
     }
 
