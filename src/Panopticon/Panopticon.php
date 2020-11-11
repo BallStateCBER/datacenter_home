@@ -172,6 +172,11 @@ class Panopticon
             'ice-miller-cakephp2',
             'tax-calculator',
             'tax-calculator-cakephp2',
+            'honest-pledge',
+            'ice-miller-cakephp3',
+            'cakephp-codesniffer',
+            'surveymonkey-api-v3',
+            'GoogleCharts',
         ];
     }
 
