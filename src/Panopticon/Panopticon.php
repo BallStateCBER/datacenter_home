@@ -158,13 +158,13 @@ class Panopticon
     }
 
     /**
-     * Returns an array of retired sites, referenced by their GitHub repo names
+     * Returns an array of retired or otherwise ignorable GitHub repo names
      *
      * These sites won't be included in the panopticon list
      *
      * @return array
      */
-    public function getRetiredSites()
+    public function getIgnoredRepos()
     {
         return [
             'cri',

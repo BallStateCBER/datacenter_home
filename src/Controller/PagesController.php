@@ -91,12 +91,12 @@ class PagesController extends AppController
     {
         $panopticon = new Panopticon();
         $sites = $panopticon->getSiteDetails();
-        $retired = $panopticon->getRetiredSites();
+        $ignored = $panopticon->getIgnoredRepos();
         $repositories = $panopticon->getReposFromGitHub();
 
         // Filter out retired sites
         foreach ($repositories as $i => $repository) {
-            if (in_array($repository['name'], $retired)) {
+            if (in_array($repository['name'], $ignored)) {
                 unset($repositories[$i]);
                 continue;
             }
@@ -110,7 +110,6 @@ class PagesController extends AppController
             'sites' => $sites,
             'isLocalhost' => $isLocalhost,
             'environments' => ['production', 'staging'] + ($isLocalhost ? ['development'] : []),
-            'retired' => $retired
         ]);
     }
 
