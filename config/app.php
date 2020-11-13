@@ -368,6 +368,6 @@ return [
     'data_center_subsite_url' => 'https://cberdata.org',
     'data_center_subsite_title' => 'CBER Data Center',
     'github_api_token' => env('GITHUB_API_TOKEN'),
-    'google_analytics_id' => env('GOOGLE_ANALYTICS_ID'),
+    'google_analytics_id' => 'G-9EF8MMHYTB',
     'slack_webhook_url' => env('SLACK_WEBHOOK_URL')
 ];
