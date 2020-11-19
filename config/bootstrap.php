@@ -13,28 +13,8 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
-// You can remove this if you are confident that your PHP version is sufficient.
-if (version_compare(PHP_VERSION, '5.6.0') < 0) {
-    trigger_error('Your PHP version must be equal or higher than 5.6.0 to use CakePHP.', E_USER_ERROR);
-}
-
 /*
- *  You can remove this if you are confident you have intl installed.
- */
-if (!extension_loaded('intl')) {
-    trigger_error('You must enable the intl extension to use CakePHP.', E_USER_ERROR);
-}
-
-/*
- * You can remove this if you are confident you have mbstring installed.
- */
-if (!extension_loaded('mbstring')) {
-    trigger_error('You must enable the mbstring extension to use CakePHP.', E_USER_ERROR);
-}
-
-/*
- * Configure paths required to find CakePHP + general filepath
- * constants
+ * Configure paths required to find CakePHP + general filepath constants
  */
 require __DIR__ . '/paths.php';
 
@@ -53,14 +33,32 @@ use Cake\Cache\Cache;
 use Cake\Console\ConsoleErrorHandler;
 use Cake\Core\Configure;
 use Cake\Core\Configure\Engine\PhpConfig;
-use Cake\Core\Plugin;
 use Cake\Database\Type;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\ErrorHandler;
 use Cake\Http\ServerRequest;
 use Cake\Log\Log;
 use Cake\Mailer\Email;
+use Cake\Mailer\TransportFactory;
+use Cake\Utility\Inflector;
 use Cake\Utility\Security;
+
+/*
+ * Uncomment block of code below if you want to use `.env` file during development.
+ * You should copy `config/.env.example` to `config/.env` and set/modify the
+ * variables as required.
+ *
+ * It is HIGHLY discouraged to use a .env file in production, due to security risks
+ * and decreased performance on each request. The purpose of the .env file is to emulate
+ * the presence of the environment variables like they would be present in production.
+ */
+// if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
+//     $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
+//     $dotenv->parse()
+//         ->putenv()
+//         ->toEnv()
+//         ->toServer();
+// }
 
 /*
  * Read configuration file and inject configuration into various
@@ -78,11 +76,12 @@ try {
 }
 
 /*
- * Load an environment local configuration file.
- * You can use a file like app_local.php to provide local overrides to your
- * shared configuration.
+ * Load an environment local configuration file to provide overrides to your configuration.
+ * Notice: For security reasons app_local.php will not be included in your git repo.
  */
-//Configure::load('app_local', 'default');
+if (file_exists(CONFIG . 'app_local.php')) {
+    Configure::load('app_local', 'default');
+}
 
 /*
  * When debug = true the metadata cache should only last
@@ -91,14 +90,15 @@ try {
 if (Configure::read('debug')) {
     Configure::write('Cache._cake_model_.duration', '+2 minutes');
     Configure::write('Cache._cake_core_.duration', '+2 minutes');
+    // disable router cache during development
+    Configure::write('Cache._cake_routes_.duration', '+2 seconds');
 }
 
 /*
- * Set server timezone to UTC. You can change it to another timezone of your
- * choice but using UTC makes time calculations / conversions easier.
+ * Set the default server timezone. Using UTC makes time calculations / conversions easier.
  * Check http://php.net/manual/en/timezones.php for list of valid timezone strings.
  */
-date_default_timezone_set('UTC');
+date_default_timezone_set(Configure::read('App.defaultTimezone'));
 
 /*
  * Configure the mbstring extension to use the correct encoding.
@@ -149,7 +149,7 @@ if (!Configure::read('App.fullBaseUrl')) {
 
 Cache::setConfig(Configure::consume('Cache'));
 ConnectionManager::setConfig(Configure::consume('Datasources'));
-Email::setConfigTransport(Configure::consume('EmailTransport'));
+TransportFactory::setConfig(Configure::consume('EmailTransport'));
 Email::setConfig(Configure::consume('Email'));
 Log::setConfig(Configure::consume('Log'));
 Security::setSalt(Configure::consume('Security.salt'));
@@ -181,7 +181,7 @@ ServerRequest::addDetector('tablet', function ($request) {
  * You can enable default locale format parsing by adding calls
  * to `useLocaleParser()`. This enables the automatic conversion of
  * locale specific date formats. For details see
- * @link https://book.cakephp.org/3.0/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
+ * @link https://book.cakephp.org/3/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
  */
 Type::build('time')
     ->useImmutable();
@@ -201,22 +201,3 @@ Type::build('timestamp')
 //Inflector::rules('irregular', ['red' => 'redlings']);
 //Inflector::rules('uninflected', ['dontinflectme']);
 //Inflector::rules('transliteration', ['/å/' => 'aa']);
-
-/*
- * Plugins need to be loaded manually, you can either load them one by one or all of them in a single call
- * Uncomment one of the lines below, as you need. make sure you read the documentation on Plugin to use more
- * advanced ways of loading plugins
- *
- * Plugin::loadAll(); // Loads all plugins at once
- * Plugin::load('Migrations'); //Loads a single plugin named Migrations
- *
- */
-Plugin::load('DataCenter', ['bootstrap' => false, 'routes' => true]);
-
-/*
- * Only try to load DebugKit in development mode
- * Debug Kit should not be installed on a production system
- */
-if (Configure::read('debug')) {
-    Plugin::load('DebugKit', ['bootstrap' => true]);
-}
