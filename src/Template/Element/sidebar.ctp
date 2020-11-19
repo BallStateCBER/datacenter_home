@@ -6,7 +6,7 @@
 		<?php
 			$title = $latestRelease['Release']['title'];
 			$released = $latestRelease['Release']['released'];
-			$thumbnail = $latestRelease['Graphic'][0]['thumbnail'];
+			$thumbnail = $latestRelease['Graphic'][0]['thumbnail'] ?? null;
             $linkContent =
                 '<span class="title">' .
                     $title .
