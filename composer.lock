@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BallStateCBER/datacenter-plugin-cakephp4.git",
-                "reference": "1c046acb765dd2087fcc68fef9e3e2e0a684d7f1"
+                "reference": "3f2c3010bb99047f4f6c7ddbec70ba313d29554c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BallStateCBER/datacenter-plugin-cakephp4/zipball/1c046acb765dd2087fcc68fef9e3e2e0a684d7f1",
-                "reference": "1c046acb765dd2087fcc68fef9e3e2e0a684d7f1",
+                "url": "https://api.github.com/repos/BallStateCBER/datacenter-plugin-cakephp4/zipball/3f2c3010bb99047f4f6c7ddbec70ba313d29554c",
+                "reference": "3f2c3010bb99047f4f6c7ddbec70ba313d29554c",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 "issues": "https://github.com/BallStateCBER/datacenter-plugin-cakephp4/issues",
                 "source": "https://github.com/BallStateCBER/datacenter-plugin-cakephp4/tree/master"
             },
-            "time": "2021-02-08T22:42:38+00:00"
+            "time": "2021-02-13T00:33:05+00:00"
         },
         {
             "name": "cakephp/authentication",

@@ -10,13 +10,11 @@ $this->assign('sidebar', $this->element('sidebar'));
 ?>
 
 <?php $this->start('site_title'); ?>
-    <h1 class="text">
+    <h1>
         <a href="/">
-            Collect | Analyze | Display
+            <img src="/img/banner.png" alt="Collect | Analyze | Display" />
         </a>
     </h1>
 <?php $this->end(); ?>
 
-<div id="content">
-    <?= $this->fetch('content') ?>
-</div>
+<?= $this->fetch('content') ?>

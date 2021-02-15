@@ -1,3 +1,104 @@
 @import "./cake.css";
 @import "../../vendor/twbs/bootstrap/scss/bootstrap.scss";
 @import "../../vendor/ballstatecber/datacenter-plugin-cakephp4/webroot/css/datacenter.scss";
+
+$subsiteTitleHeight: 103px;
+$paddingUnderSubsiteTitle: 15px;
+
+section.websites {
+    a {
+        display: block;
+        margin: auto;
+    }
+
+    .headers {
+        text-align: center;
+    }
+
+    img {
+        margin-bottom: 0.5em;
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .site {
+        background-color: #eee;
+        border-radius: 0.5em;
+        font-size: 110%;
+        margin: 1em;
+        padding: 1em;
+    }
+}
+
+table.websites {
+    thead {
+        th {
+            text-align: center;
+        }
+    }
+
+    tbody {
+        td {
+            padding: 5px 5px 20px 5px;
+            width: 225px;
+        }
+    }
+
+    a {
+        display: block;
+        font-size: 120%;
+    }
+}
+
+#sidebar {
+    section:not(:last-child) {
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+#twitter {
+    margin: auto -15px;
+}
+
+#site-title {
+    font-size: 200%;
+    text-align: center;
+    text-transform: uppercase;
+
+    a {
+        color: #c00;
+        text-decoration: none;
+    }
+}
+
+#latest-release {
+    a {
+        display: inline-block;
+        margin-top: 15px;
+
+        &:hover {
+            text-decoration: none;
+
+            .title {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    img {
+        border: 1px solid #aaa;
+        max-height: 195px;
+        max-width: 195px;
+    }
+
+    .title {
+        display: block;
+        font-size: 120%;
+    }
+
+    .released {
+        color: #666;
+    }
+}
