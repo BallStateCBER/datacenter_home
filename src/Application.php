@@ -37,6 +37,8 @@ use Cake\Routing\Middleware\RoutingMiddleware;
  */
 class Application extends BaseApplication
 {
+    public const LATEST_RELEASE_CACHE_KEY = 'latest_release';
+
     /**
      * Load all the application configuration and bootstrap logic.
      *
