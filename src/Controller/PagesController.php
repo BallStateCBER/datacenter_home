@@ -84,4 +84,19 @@ class PagesController extends AppController
             ],
         ]);
     }
+
+    /**
+     * Checks with deploy.cberdata.org to see whether the specified site gets auto-deployed
+     *
+     * @return void
+     */
+    public function autoDeployCheck()
+    {
+        $siteName = $this->request->getQuery('site');
+        $result = (new Panopticon())->isAutoDeployed($siteName);
+        $this->set([
+            '_serialize' => ['result'],
+            'result' => $result,
+        ]);
+    }
 }
