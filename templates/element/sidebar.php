@@ -15,7 +15,7 @@ if ($releaseIsValid) {
     );
     if ($latestRelease->graphic ?? false) {
         $linkContent .= sprintf(
-            '<img src="%s" alt="Accompanying image for release" />',
+            '<br /><img src="%s" alt="Accompanying image for release" />',
             $latestRelease->graphic
         );
     }
