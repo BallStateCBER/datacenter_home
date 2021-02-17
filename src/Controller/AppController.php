@@ -58,7 +58,9 @@ class AppController extends DataCenterController
     {
         parent::beforeRender($event);
         $this->set([
-            'latestRelease' => Cache::read(Application::LATEST_RELEASE_CACHE_KEY)
+            'latestRelease' => Cache::read(Application::LATEST_RELEASE_CACHE_KEY),
+            'navClassNames' => 'col-lg-3 col-md-3 col-12 mb-5 mb-md-0',
+            'mainClassNames' => 'col-lg-9 col-md-9 col-12 px-0 pl-md-4',
         ]);
     }
 }
