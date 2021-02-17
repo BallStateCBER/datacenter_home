@@ -79,8 +79,8 @@ class PagesController extends AppController
         $this->set([
             '_serialize' => ['result'],
             'result' => [
-                'status' => substr($result, 0, strpos($result, "\n")),
-                'debug' => stripos($result, 'debug-kit-toolbar') !== false,
+                'status' => $result ? substr($result, 0, strpos($result, "\n")) : 'Error',
+                'debug' => $result ? stripos($result, 'debug-kit-toolbar') !== false : false,
             ],
         ]);
     }

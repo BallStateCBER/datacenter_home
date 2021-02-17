@@ -171,7 +171,7 @@ class Panopticon
      * Returns the HTTP response for the provided URL
      *
      * @param string $url URL to check
-     * @return mixed
+     * @return string|bool
      */
     public function getSiteStatus(string $url)
     {
