@@ -76,9 +76,14 @@ class Panopticon
                 'development' => 'https://deploy.localhost'
             ],
             'economic-indicators' => [
-                'title' => 'Economic Indicators',
+                'title' => 'Economic Indicators (CakePHP 2)',
                 'production' => 'https://indicators.cberdata.org',
                 'development' => 'https://indicators.localhost'
+            ],
+            'economic-indicators-cakephp4' => [
+                'title' => 'Economic Indicators (CakePHP 4)',
+                'production' => 'https://indicators4.cberdata.org',
+                'development' => 'https://indicators4.localhost'
             ],
             'honest-pledge' => [
                 'title' => 'Honest Muncie Pledge',
@@ -125,16 +130,22 @@ class Panopticon
                 'development' => 'https://projects.localhost'
             ],
             'projects-cakephp3' => [
-                'title' => 'CBER Projects and Publications (CakePHP 3)',
-                'production' => 'https://projects3.cberdata.org',
-                'staging' => 'https://staging.projects3.cberdata.org',
-                'development' => 'https://projects3.localhost'
+                'title' => 'CBER Projects and Publications (CakePHP 3)'
+            ],
+            'projects-cakephp4' => [
+                'title' => 'CBER Projects and Publications (CakePHP 4)',
+                'production' => 'https://beta.projects.cberdata.org',
+                'staging' => 'https://staging.projects.cberdata.org',
+                'development' => 'https://projects4.localhost'
             ],
             'roundtable' => [
                 'title' => 'BSU Roundtable (CakePHP 2)'
             ],
             'datacenter-plugin' => [
                 'title' => 'Data Center Plugin (CakePHP 2)'
+            ],
+            'datacenter-plugin-cakephp4' => [
+                'title' => 'Data Center Plugin (CakePHP 4)'
             ],
             'data-center-template' => [
                 'title' => 'Data Center Template'
@@ -154,6 +165,11 @@ class Panopticon
                 'title' => 'School Rankings',
                 'production' => 'https://school.cberdata.org',
             ],
+            'vore-arts-fund' => [
+                'title' => 'Vore Arts Fund',
+                'production' => 'https://voreartsfund.org',
+                'staging' => 'https://staging.voreartsfund.org',
+            ]
         ];
     }
 
