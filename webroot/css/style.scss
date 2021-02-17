@@ -101,3 +101,86 @@ table.websites {
         color: #666;
     }
 }
+
+.panopticon-table {
+    .glyphicon {
+        cursor: default;
+        font-size: 120%;
+    }
+
+    a .glyphicon {
+        cursor: pointer;
+    }
+
+    .glyphicon-ok-sign,
+    .glyphicon-circle-arrow-right {
+        color: green;
+    }
+
+    .glyphicon-remove-sign,
+    .glyphicon-question-sign {
+        color: red;
+    }
+
+    .glyphicon-circle-arrow-left {
+        color: #E0C600;
+    }
+
+    span.debug {
+        color: #999;
+        font-size: 80%;
+    }
+
+    span.na {
+        color: #999;
+        font-size: 80%;
+    }
+
+    td:first-child {
+        width: 300px;
+    }
+
+    td:last-child {
+        span.debug {
+            color: red;
+            font-size: inherit;
+        }
+    }
+
+    ul.links {
+        font-size: 80%;
+        margin: 0;
+        padding: 0;
+
+        li {
+            border-right: 1px solid #bbb;
+            display: inline;
+            list-style-type: none;
+            margin: 0 5px 0 0;
+            padding: 0 5px 0 0;
+
+            &:last-child {
+                border: none;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+
+    tr.issues {
+        td {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        ul {
+            margin-top: -10px;
+            margin-bottom: 0;
+            padding-left: 10px;
+        }
+    }
+}
+
+.nav::after {
+    clear: none;
+}
