@@ -16,6 +16,9 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Application;
+use Cake\Cache\Cache;
+use Cake\Event\EventInterface;
 use DataCenter\Controller\AppController as DataCenterController;
 
 /**
@@ -49,5 +52,13 @@ class AppController extends DataCenterController
          * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
          */
         //$this->loadComponent('FormProtection');
+    }
+
+    public function beforeRender(EventInterface $event)
+    {
+        parent::beforeRender($event);
+        $this->set([
+            'latestRelease' => Cache::read(Application::LATEST_RELEASE_CACHE_KEY)
+        ]);
     }
 }
