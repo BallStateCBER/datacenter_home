@@ -66,4 +66,22 @@ class PagesController extends AppController
             'sites' => $sites,
         ]);
     }
+
+    /**
+     * Shows the HTTP status code and debug status of the provided URL
+     *
+     * @return void
+     */
+    public function checkStatus()
+    {
+        $url = $this->request->getQuery('url');
+        $result = (new Panopticon())->getSiteStatus($url);
+        $this->set([
+            '_serialize' => ['result'],
+            'result' => [
+                'status' => substr($result, 0, strpos($result, "\n")),
+                'debug' => stripos($result, 'debug-kit-toolbar') !== false,
+            ],
+        ]);
+    }
 }
