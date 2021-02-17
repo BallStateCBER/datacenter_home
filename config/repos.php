@@ -89,22 +89,11 @@ return [
             'production' => 'https://munciemusicfest.com',
             'development' => 'https://mmf.localhost'
         ],
-        'muncie-events' => [
-            'title' => 'Muncie Events (CakePHP 2)',
+        'muncie-events-api' => [
+            'title' => 'Muncie Events + API',
+            'api' => 'https://api.muncieevents.com',
             'production' => 'https://muncieevents.com',
             'staging' => 'https://staging.muncieevents.com',
-            'development' => 'https://muncie-events.localhost'
-        ],
-        'muncie-events3' => [
-            'title' => 'Muncie Events (CakePHP 3)',
-            'production' => 'https://cake3.muncieevents.com',
-            'staging' => 'https://staging.cake3.muncieevents.com',
-            'development' => 'https://muncieevents3.localhost'
-        ],
-        'muncie-events-api' => [
-            'title' => 'Muncie Events API',
-            'production' => 'https://api.muncieevents.com',
-            'staging' => 'https://staging.api.muncieevents.com',
             'development' => 'https://meapi.localhost'
         ],
         'notes' => [
@@ -158,15 +147,17 @@ return [
         ]
     ],
     'reposIgnored' => [
+        'cakephp-codesniffer',
         'cri',
         'datacenter-home-cakephp2',
+        'GoogleCharts',
+        'honest-pledge',
         'ice-miller-cakephp2',
+        'ice-miller-cakephp3',
+        'muncie-events',
+        'muncie-events3',
+        'surveymonkey-api-v3',
         'tax-calculator',
         'tax-calculator-cakephp2',
-        'honest-pledge',
-        'ice-miller-cakephp3',
-        'cakephp-codesniffer',
-        'surveymonkey-api-v3',
-        'GoogleCharts',
     ],
 ];
