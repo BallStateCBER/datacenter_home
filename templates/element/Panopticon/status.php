@@ -33,7 +33,7 @@
                             : null;
                     ?>
                     <?php if ($url): ?>
-                        <td class="check_status" data-url="<?= $url ?>" data-server="<?= $environment ?>">
+                        <td class="check-status" data-url="<?= $url ?>" data-server="<?= $environment ?>">
 
                         </td>
                     <?php else: ?>
