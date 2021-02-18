@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a410abe517da7babab33db966ae7d582",
+    "content-hash": "75b5f2e91cd8598d9c9371e3b1fe1d0d",
     "packages": [
         {
             "name": "ballstatecber/datacenter-plugin-cakephp4",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/BallStateCBER/datacenter-plugin-cakephp4.git",
-                "reference": "3f2c3010bb99047f4f6c7ddbec70ba313d29554c"
+                "reference": "471cff5c554c822bedcb7ce7bbc4b0aec7e66594"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BallStateCBER/datacenter-plugin-cakephp4/zipball/3f2c3010bb99047f4f6c7ddbec70ba313d29554c",
-                "reference": "3f2c3010bb99047f4f6c7ddbec70ba313d29554c",
+                "url": "https://api.github.com/repos/BallStateCBER/datacenter-plugin-cakephp4/zipball/471cff5c554c822bedcb7ce7bbc4b0aec7e66594",
+                "reference": "471cff5c554c822bedcb7ce7bbc4b0aec7e66594",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 "issues": "https://github.com/BallStateCBER/datacenter-plugin-cakephp4/issues",
                 "source": "https://github.com/BallStateCBER/datacenter-plugin-cakephp4/tree/master"
             },
-            "time": "2021-02-13T00:33:05+00:00"
+            "time": "2021-02-18T01:03:04+00:00"
         },
         {
             "name": "cakephp/authentication",
@@ -7732,7 +7732,8 @@
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.4",
-        "ext-json": "*"
+        "ext-json": "*",
+        "ext-curl": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
