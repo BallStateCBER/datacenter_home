@@ -49,6 +49,7 @@ $routes->scope('/', function (RouteBuilder $builder) {
 
     $builder->connect('/', ['controller' => 'Pages', 'action' => 'home']);
     $builder->connect('/panopticon', ['controller' => 'Pages', 'action' => 'panopticon']);
+    $builder->connect('/terms', ['controller' => 'Pages', 'action' => 'terms']);
 
     $builder->fallbacks();
 });

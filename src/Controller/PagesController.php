@@ -100,4 +100,14 @@ class PagesController extends AppController
             'result' => $result,
         ]);
     }
+
+    /**
+     * Terms-of-service page
+     *
+     * @return void
+     */
+    public function terms()
+    {
+        $this->set('pageTitle', 'Terms of Service');
+    }
 }
