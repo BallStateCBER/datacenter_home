@@ -98,17 +98,9 @@ return [
         'notes' => [
             'title' => 'CBER Web Development Notes'
         ],
-        'projects' => [
-            'title' => 'CBER Projects and Publications (CakePHP 2)',
-            'production' => 'https://projects.cberdata.org',
-            'development' => 'https://projects.localhost'
-        ],
-        'projects-cakephp3' => [
-            'title' => 'CBER Projects and Publications (CakePHP 3)'
-        ],
         'projects-cakephp4' => [
-            'title' => 'CBER Projects and Publications (CakePHP 4)',
-            'production' => 'https://beta.projects.cberdata.org',
+            'title' => 'CBER Projects and Publications',
+            'production' => 'https://projects.cberdata.org',
             'staging' => 'https://staging.projects.cberdata.org',
             'development' => 'https://projects4.localhost'
         ],
@@ -155,6 +147,8 @@ return [
         'ice-miller-cakephp3',
         'muncie-events',
         'muncie-events3',
+        'projects',
+        'projects-cakephp3',
         'surveymonkey-api-v3',
         'tax-calculator',
         'tax-calculator-cakephp2',
