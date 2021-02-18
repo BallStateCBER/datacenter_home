@@ -32,7 +32,7 @@
     </div>
 <?php endif; ?>
 
-<?php $this->Html->script('overview', ['block' => 'script']); ?>
+<?php $this->Html->script('panopticon', ['block' => 'script']); ?>
 <?php $this->append('buffered'); ?>
-    dataCenterOverview.init();
+    const panopticon = new Panopticon();
 <?php $this->end(); ?>
