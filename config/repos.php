@@ -45,10 +45,9 @@ return [
             'title' => 'County Profiles Updater'
         ],
         'datacenter-home' => [
-            'title' => 'CBER Data Center Home (CakePHP 3)',
+            'title' => 'CBER Data Center Home',
             'production' => 'https://cberdata.org',
-            'staging' => 'https://staging.home.cberdata.org',
-            'development' => 'https://dchome3.localhost'
+            'development' => 'https://dchome4.localhost'
         ],
         'datacenter-skeleton' => [
             'title' => 'CBER Data Center Website Skeleton'
