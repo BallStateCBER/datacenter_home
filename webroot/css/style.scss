@@ -103,26 +103,27 @@ table.websites {
 }
 
 .panopticon-table {
-    .glyphicon {
+    .fas {
         cursor: default;
         font-size: 120%;
     }
 
-    a .glyphicon {
+    a .fas {
         cursor: pointer;
     }
 
-    .glyphicon-ok-sign,
-    .glyphicon-circle-arrow-right {
+    .fa-check-circle,
+    .fa-arrow-circle-right {
         color: green;
     }
 
-    .glyphicon-remove-sign,
-    .glyphicon-question-sign {
+    .fa-minus-circle,
+    .fa-question-circle {
         color: red;
     }
 
-    .glyphicon-circle-arrow-left {
+    .fa-exclamation-triangle,
+    .fa-arrow-circle-left {
         color: #E0C600;
     }
 
@@ -179,6 +180,14 @@ table.websites {
             padding-left: 10px;
         }
     }
+
+  a.issues.error {
+    color: red;
+
+    &::after {
+      content: ' (error)';
+    }
+  }
 }
 
 .nav::after {

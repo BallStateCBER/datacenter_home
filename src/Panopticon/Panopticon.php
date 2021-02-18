@@ -142,29 +142,29 @@ class Panopticon
         $compare = $apiRepo->commits()->compare($orgName, $repoName, $baseBranch, 'master');
         switch ($compare['status']) {
             case 'identical':
-                return $this->getGlyphicon('ok-sign', 'Identical');
+                return $this->getIcon('fa-check-circle', 'Identical');
             case 'ahead':
-                return $this->getGlyphicon('circle-arrow-right', "Ahead of $baseBranch for some reason")
+                return $this->getIcon('fa-arrow-circle-right', "Ahead of $baseBranch for some reason")
                     . ' ' . $compare['ahead_by'];
             case 'behind':
                 return
-                    $this->getGlyphicon('circle-arrow-left', "Behind $baseBranch")
+                    $this->getIcon('fa-arrow-circle-left', "Behind $baseBranch")
                         . ' ' . $compare['behind_by'];
             default:
-                return $this->getGlyphicon('question-sign', 'Unexpected status');
+                return $this->getIcon('fa-question-sign', 'Unexpected status');
         }
     }
 
     /**
-     * Returns a <span> tag for the specified glyphicon
+     * Returns an icon tag for the specified glyphicon
      *
-     * @param string $class Full class will be "glyphicon glyphicon-$class"
+     * @param string $class Full class will be "fas $class"
      * @param string $title For title attribute
      * @return string
      */
-    private function getGlyphicon(string $class, $title = ''): string
+    private function getIcon(string $class, $title = ''): string
     {
-        return sprintf('<span class="glyphicon glyphicon-%s" title="%s"></span>', $class, $title);
+        return sprintf('<i class="fas %s" title="%s"></i>', $class, $title);
     }
 
     /**
