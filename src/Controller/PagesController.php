@@ -60,6 +60,7 @@ class PagesController extends AppController
 
         $this->set([
             'environments' => ['production', 'staging'] + ($isLocalhost ? ['development'] : []),
+            'hideSidebar' => true,
             'isLocalhost' => $isLocalhost,
             'pageTitle' => 'CBER Website Panopticon',
             'repositories' => $repositories,

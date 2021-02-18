@@ -1,12 +1,14 @@
 <?php
 /**
  * @var \App\View\AppView $this
+ * @var bool $hideSidebar
  */
 
 $this->extend('DataCenter.default');
 
-// If you have a /templates/elements/sidebar.php file
-$this->assign('sidebar', $this->element('sidebar'));
+if (!($hideSidebar ?? false)) {
+    $this->assign('sidebar', $this->element('sidebar'));
+}
 ?>
 
 <?php $this->start('site_title'); ?>
