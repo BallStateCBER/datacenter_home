@@ -64,5 +64,7 @@ class RefreshLatestReleaseCommand extends Command
         }
 
         $io->out('No release data was returned');
+
+        return null;
     }
 }
