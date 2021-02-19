@@ -57,7 +57,7 @@ class RefreshLatestReleaseCommand extends Command
 
         if ($results && isset($results->release)) {
             $io->out('Updating cache...');
-            Cache::write(Application::LATEST_RELEASE_CACHE_KEY, $results->release);
+            Cache::write(Application::LATEST_RELEASE_CACHE_KEY, $results->release, 'long');
             $io->out('Done');
 
             return null;

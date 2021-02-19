@@ -58,7 +58,7 @@ class AppController extends DataCenterController
     {
         parent::beforeRender($event);
         $this->set([
-            'latestRelease' => Cache::read(Application::LATEST_RELEASE_CACHE_KEY),
+            'latestRelease' => Cache::read(Application::LATEST_RELEASE_CACHE_KEY, 'long'),
             'lgSidebarWidth' => 3,
         ]);
     }
