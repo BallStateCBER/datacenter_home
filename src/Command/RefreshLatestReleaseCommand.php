@@ -46,7 +46,7 @@ class RefreshLatestReleaseCommand extends Command
                 'ssl' => [
                     'verify_peer' => false,
                     'verify_peer_name' => false,
-                ]
+                ],
             ];
             $results = file_get_contents($url, false, stream_context_create($streamOptions));
         } else {

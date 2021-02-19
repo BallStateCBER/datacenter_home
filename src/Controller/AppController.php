@@ -54,6 +54,12 @@ class AppController extends DataCenterController
         //$this->loadComponent('FormProtection');
     }
 
+    /**
+     * beforeRender callback
+     *
+     * @param \Cake\Event\EventInterface $event Event object
+     * @return void
+     */
     public function beforeRender(EventInterface $event)
     {
         parent::beforeRender($event);

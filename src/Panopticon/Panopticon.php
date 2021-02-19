@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace App\Panopticon;
 
 use Cake\Core\Configure;
@@ -40,7 +42,7 @@ class Panopticon
     /**
      * Returns an authenticated GitHub API client object
      *
-     * @return Client
+     * @return \Github\Client
      */
     private function getGithubApiClient(): Client
     {
@@ -55,7 +57,7 @@ class Panopticon
     /**
      * Returns an array of the branch names for the specified repo
      *
-     * @param Client $client GitHub API client
+     * @param \Github\Client $client GitHub API client
      * @param string $orgName Organization name
      * @param string $repoName Repo name
      * @return array
@@ -125,14 +127,18 @@ class Panopticon
     /**
      * Returns an HTML string representing the master branch's status relative to $baseBranch (e.g. behind by X commits)
      *
-     * @param Client $client GitHub API client
+     * @param \Github\Client $client GitHub API client
      * @param string|null $baseBranch Branch to compare master branch to
      * @param string $orgName GitHub organization name
      * @param string $repoName Repo name
      * @return string
      */
-    private function getMasterBranchStatus(Client $client, ?string $baseBranch, string $orgName, string $repoName): string
-    {
+    private function getMasterBranchStatus(
+        Client $client,
+        ?string $baseBranch,
+        string $orgName,
+        string $repoName
+    ): string {
         if (!$baseBranch) {
             return '<span class="na">N/A</a>';
         }
@@ -147,8 +153,7 @@ class Panopticon
                 return $this->getIcon('fa-arrow-circle-right', "Ahead of $baseBranch for some reason")
                     . ' ' . $compare['ahead_by'];
             case 'behind':
-                return
-                    $this->getIcon('fa-arrow-circle-left', "Behind $baseBranch")
+                return $this->getIcon('fa-arrow-circle-left', "Behind $baseBranch")
                         . ' ' . $compare['behind_by'];
             default:
                 return $this->getIcon('fa-question-sign', 'Unexpected status');

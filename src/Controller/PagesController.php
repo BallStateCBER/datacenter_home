@@ -33,7 +33,7 @@ class PagesController extends AppController
         $snLen = strlen(env('SERVER_NAME'));
         $lhLen = strlen('localhost');
 
-        return ($pos !== false && $pos == ($snLen - $lhLen));
+        return $pos !== false && $pos == $snLen - $lhLen;
     }
 
     /**

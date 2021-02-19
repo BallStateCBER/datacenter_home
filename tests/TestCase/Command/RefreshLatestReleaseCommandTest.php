@@ -25,6 +25,7 @@ class RefreshLatestReleaseCommandTest extends TestCase
         parent::setUp();
         $this->useCommandRunner();
     }
+
     /**
      * Test buildOptionParser method
      *
