@@ -60,9 +60,9 @@ class Panopticon
      * @param \Github\Client $client GitHub API client
      * @param string $orgName Organization name
      * @param string $repoName Repo name
-     * @return array
+     * @return array|\ArrayAccess<int, string>
      */
-    private function getBranches(Client $client, string $orgName, string $repoName): array
+    private function getBranches(Client $client, string $orgName, string $repoName)
     {
         /** @var \Github\Api\Repo $apiRepo */
         $apiRepo = $client->api('repo');
@@ -207,6 +207,6 @@ class Panopticon
         $result = curl_exec($ch);
         curl_close($ch);
 
-        return $result;
+        return $result !== false;
     }
 }

@@ -29,8 +29,8 @@ class PagesController extends AppController
      */
     private function isLocalhost()
     {
-        $pos = stripos(env('SERVER_NAME'), 'localhost');
-        $snLen = strlen(env('SERVER_NAME'));
+        $pos = stripos((string)env('SERVER_NAME'), 'localhost');
+        $snLen = strlen((string)env('SERVER_NAME'));
         $lhLen = strlen('localhost');
 
         return $pos !== false && $pos == $snLen - $lhLen;
@@ -76,13 +76,20 @@ class PagesController extends AppController
     public function checkStatus()
     {
         $url = $this->request->getQuery('url');
-        $result = (new Panopticon())->getSiteStatus($url);
+        $status = 'Error';
+        $debug = false;
+        if (is_string($url)) {
+            $result = (new Panopticon())->getSiteStatus($url);
+            if (is_string($result)) {
+                $endOfLine = strpos($result, "\n");
+                $length = $endOfLine === false ? null : $endOfLine;
+                $status = substr($result, 0, $length);
+                $debug = stripos($result, 'debug-kit-toolbar') !== false;
+            }
+        }
         $this->set([
             '_serialize' => ['result'],
-            'result' => [
-                'status' => $result ? substr($result, 0, strpos($result, "\n")) : 'Error',
-                'debug' => $result ? stripos($result, 'debug-kit-toolbar') !== false : false,
-            ],
+            'result' => compact('status', 'debug'),
         ]);
     }
 
@@ -94,7 +101,7 @@ class PagesController extends AppController
     public function autoDeployCheck()
     {
         $siteName = $this->request->getQuery('site');
-        $result = (new Panopticon())->isAutoDeployed($siteName);
+        $result = is_string($siteName) ? (new Panopticon())->isAutoDeployed($siteName) : false;
         $this->set([
             '_serialize' => ['result'],
             'result' => $result,
