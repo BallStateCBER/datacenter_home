@@ -1,4 +1,4 @@
-name: CakePHP App CI
+name: Data Center Site CI
 
 on:
   push:
