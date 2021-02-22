@@ -24,9 +24,14 @@ section.websites {
     .site {
         background-color: #eee;
         border-radius: 0.5em;
-        font-size: 110%;
-        margin: 1em;
-        padding: 1em;
+    }
+
+    .row:not(.headers) {
+        > div {
+          font-size: 110%;
+          margin: 1em;
+          padding: 1em;
+        }
     }
 }
 

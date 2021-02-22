@@ -86,7 +86,7 @@
     <div class="row">
         <?= $showSite('Brownfield Grant Writers\' Tool') ?>
         <?= $showSite('Weekly Commentary') ?>
-        <div class="col">
+        <div class="col-lg pb-4">
 
         </div>
     </div>
