@@ -75,11 +75,6 @@ return [
             'production' => 'https://pledge.honestmuncie.org',
             'development' => 'https://honestpledge.localhost'
         ],
-        'ice-miller-cakephp3' => [
-            'title' => 'Ice Miller / EDGE Articles',
-            'production' => 'https://icemiller.cberdata.org',
-            'development' => 'https://icemiller3.localhost'
-        ],
         'mfg-scr-crd' => [
             'title' => 'Manufacturing Scorecard'
         ],
