@@ -43,16 +43,15 @@ class PagesControllerTest extends TestCase
     }
 
     /**
-     * testDisplay method
+     * Tests that the home page loads correctly
      *
      * @return void
      */
-    public function testDisplay()
+    public function testHome()
     {
         $this->get('/pages/home');
         $this->assertResponseOk();
-        $this->assertResponseContains('CakePHP');
-        $this->assertResponseContains('<html>');
+        $this->assertResponseContains('CBER Data Center');
     }
 
     /**
@@ -79,22 +78,7 @@ class PagesControllerTest extends TestCase
         Configure::write('debug', true);
         $this->get('/pages/not_existing');
 
-        $this->assertResponseFailure();
-        $this->assertResponseContains('Missing Template');
-        $this->assertResponseContains('Stacktrace');
-        $this->assertResponseContains('not_existing.php');
-    }
-
-    /**
-     * Test directory traversal protection
-     *
-     * @return void
-     */
-    public function testDirectoryTraversalProtection()
-    {
-        $this->get('/pages/../Layout/ajax');
-        $this->assertResponseCode(403);
-        $this->assertResponseContains('Forbidden');
+        $this->assertResponseError();
     }
 
     /**
@@ -104,7 +88,7 @@ class PagesControllerTest extends TestCase
      */
     public function testCsrfAppliedError()
     {
-        $this->post('/pages/home', ['hello' => 'world']);
+        $this->post('/', ['hello' => 'world']);
 
         $this->assertResponseCode(403);
         $this->assertResponseContains('CSRF');
@@ -118,9 +102,9 @@ class PagesControllerTest extends TestCase
     public function testCsrfAppliedOk()
     {
         $this->enableCsrfToken();
-        $this->post('/pages/home', ['hello' => 'world']);
+        $this->post('/', ['hello' => 'world']);
 
         $this->assertResponseCode(200);
-        $this->assertResponseContains('CakePHP');
+        $this->assertResponseContains('CBER Data Center');
     }
 }
