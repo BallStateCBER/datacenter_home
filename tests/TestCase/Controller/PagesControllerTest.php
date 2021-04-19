@@ -16,6 +16,7 @@ declare(strict_types=1);
  */
 namespace App\Test\TestCase\Controller;
 
+use Cake\Cache\Engine\FileEngine;
 use Cake\Core\Configure;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
@@ -28,6 +29,19 @@ use Cake\TestSuite\TestCase;
 class PagesControllerTest extends TestCase
 {
     use IntegrationTestTrait;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        // Account for /config/app_local.php being unavailable to third-party automated testing
+        Configure::write('Cache.long', [
+            'className' => FileEngine::class,
+            'path' => CACHE,
+            'prefix' => 'app_',
+            'duration' => '+1 years',
+        ]);
+    }
 
     /**
      * testMultipleGet method
