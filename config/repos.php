@@ -85,7 +85,6 @@ return [
         ],
         'muncie-events-api' => [
             'title' => 'Muncie Events + API',
-            'api' => 'https://api.muncieevents.com',
             'production' => 'https://muncieevents.com',
             'staging' => 'https://staging.muncieevents.com',
             'development' => 'https://meapi.localhost'
