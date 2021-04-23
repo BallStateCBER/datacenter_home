@@ -11,16 +11,6 @@
                 'img' => '/img/sites/CAIR.jpg',
                 'about' => 'An objective, data-focused assessment of the factors that influence the quality of life and the economic conditions within each county.',
             ],
-            'Economic Impact Calculator' => [
-                'url' => 'https://profiles.cberdata.org/calculator',
-                'img' => '/img/sites/ImpactCalculator.jpg',
-                'about' => 'This tool estimates the direct and indirect effects of the introduction of a new business to a county.',
-            ],
-            'Indiana County Profiles' => [
-                'url' => 'https://profiles.cberdata.org',
-                'img' => '/img/sites/Profiles.jpg',
-                'about' => 'County-level information including demographics, education, health, and social capital.',
-            ],
             'Manufacturing and Logistics Report' => [
                 'url' => 'https://mfgscorecard.cberdata.org/',
                 'img' => '/img/sites/Conexus.png',
@@ -30,11 +20,6 @@
                 'url' => 'http://coli.org/calculator/in/muncie/calculator.asp',
                 'img' => '/img/sites/Coli.jpg',
                 'about' => 'The Council for Community and Economic Research (C2ER) compiles average pricing data to compare average living costs in cities across the U.S.',
-            ],
-            'Brownfield Grant Writers\' Tool' => [
-                'url' => 'https://brownfield.cberdata.org/',
-                'img' => '/img/sites/Brownfield.jpg',
-                'about' => 'County-level information for grant writers regarding demographics, education, health, and social capital.	Includes information about Tax Increment Financing and a calculator for estimating	the economic and fiscal effects of new business development.',
             ],
             'Weekly Commentary' => [
                 'url' => 'https://commentaries.cberdata.org/',
@@ -64,27 +49,15 @@
     <h1 class="sr-only">
         Websites
     </h1>
-    <div class="headers row d-none d-lg-flex">
-        <?php foreach (['Resources', 'Products', 'Calculators'] as $header): ?>
-            <div class="col">
-                <h1>
-                    <?= $header ?>
-                </h1>
-            </div>
-        <?php endforeach; ?>
-    </div>
     <div class="row">
         <?= $showSite('Economic Indicators') ?>
         <?= $showSite('Indiana Community Asset Inventory and Rankings') ?>
-        <?= $showSite('Economic Impact Calculator') ?>
     </div>
     <div class="row">
-        <?= $showSite('Indiana County Profiles') ?>
         <?= $showSite('Manufacturing and Logistics Report') ?>
         <?= $showSite('Cost-of-Living Index Calculator') ?>
     </div>
     <div class="row">
-        <?= $showSite('Brownfield Grant Writers\' Tool') ?>
         <?= $showSite('Weekly Commentary') ?>
         <div class="col-lg pb-4">
 
